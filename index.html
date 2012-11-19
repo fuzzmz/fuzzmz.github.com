@@ -63,7 +63,19 @@
 
 
 </footer><!-- /.post-info --><p>Have you ever made a commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how:</p>
-<script src="https://gist.github.com/4111521.js?file=gistfile1.txt"></script><p>There are <a href="./git-revert-specific.html#disqus_thread">comments</a>.</p>
+<div class="codehilite"><pre><span class="n">git</span> <span class="n">reset</span> 56<span class="n">e05fced</span> #<span class="n">resets</span> <span class="n">index</span> <span class="n">to</span> <span class="n">former</span> <span class="n">commit</span><span class="p">;</span> <span class="n">replace</span> <span class="s">&#39;56e05fced&#39;</span> <span class="n">with</span> <span class="n">your</span> <span class="n">commit</span> <span class="n">code</span>
+<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">soft</span> <span class="n">HEAD</span><span class="p">@{</span>1<span class="p">}</span> #<span class="n">moves</span> <span class="n">pointer</span> <span class="n">back</span> <span class="n">to</span> <span class="n">previous</span> <span class="n">HEAD</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> &quot;<span class="n">Revert</span> <span class="n">to</span> 56<span class="n">e05fced</span>&quot;
+<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> #<span class="n">updates</span> <span class="n">working</span> <span class="n">copy</span> <span class="n">to</span> <span class="n">reflect</span> <span class="n">the</span> <span class="n">new</span> <span class="n">commit</span>
+</pre></div>
+
+
+<p>Just replace 56e05fced with the commit code you want to rever to</p>
+<p>The first line resets the index to a former commit, 56e05fced in this case.
+The second line moves the pointer back to the previous head.
+Third line is self explanatory
+Last tine updates the working copy to reflect the new commit</p>
+<p>Then all you have to do is push the changes with a <code>git push origin master</code> or whatever your branch may be.</p><p>There are <a href="./git-revert-specific.html#disqus_thread">comments</a>.</p>
                 </article>
                 
             </aside><!-- /#featured -->
