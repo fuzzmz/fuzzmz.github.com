@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>QWERTY - fast keystrokes</title><link href="http://fuzz.me.uk/" rel="alternate"></link><link href="http://fuzz.me.uk/feeds/all.atom.xml" rel="self"></link><id>http://fuzz.me.uk/</id><updated>2012-11-19T00:00:00+02:00</updated><entry><title>Git revert to commit</title><link href="http://fuzz.me.uk/git-revert-specific.html" rel="alternate"></link><updated>2012-11-19T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-19:git-revert-specific.html</id><summary type="html">&lt;p&gt;Have you ever made a commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>QWERTY - fast keystrokes</title><link href="http://fuzz.me.uk/" rel="alternate"></link><link href="http://fuzz.me.uk/feeds/all.atom.xml" rel="self"></link><id>http://fuzz.me.uk/</id><updated>2012-11-19T00:00:00+02:00</updated><entry><title>Git revert to commit</title><link href="http://fuzz.me.uk/git-revert-specific.html" rel="alternate"></link><updated>2012-11-19T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-19:git-revert-specific.html</id><summary type="html">&lt;p&gt;Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;soft&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt;&lt;span class="p"&gt;@{&lt;/span&gt;1&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Revert&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;&amp;quot;
@@ -9,7 +9,7 @@
 
 &lt;p&gt;Just replace 56e05fced with the commit code you want to revert to.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;The first line resets the index to a former commit, 56e05fced in this case.&lt;/li&gt;
+&lt;li&gt;The first line resets the index to a former commit (56e05fced in this case).&lt;/li&gt;
 &lt;li&gt;The second line moves the pointer back to the previous head.&lt;/li&gt;
 &lt;li&gt;Third line is self explanatory (commits the changes with a message).&lt;/li&gt;
 &lt;li&gt;Last tine updates the working copy to reflect the new commit&lt;/li&gt;

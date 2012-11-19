@@ -63,7 +63,7 @@
 <p>tags: <a href="./tag/git.html">git</a><a href="./tag/revert.html">revert</a><a href="./tag/undo.html">undo</a></p>
 
 
-</footer><!-- /.post-info --><p>Have you ever made a commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how:</p>
+</footer><!-- /.post-info --><p>Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:</p>
 <div class="codehilite"><pre><span class="n">git</span> <span class="n">reset</span> 56<span class="n">e05fced</span>
 <span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">soft</span> <span class="n">HEAD</span><span class="p">@{</span>1<span class="p">}</span>
 <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> &quot;<span class="n">Revert</span> <span class="n">to</span> 56<span class="n">e05fced</span>&quot;
@@ -73,7 +73,7 @@
 
 <p>Just replace 56e05fced with the commit code you want to revert to.</p>
 <ol>
-<li>The first line resets the index to a former commit, 56e05fced in this case.</li>
+<li>The first line resets the index to a former commit (56e05fced in this case).</li>
 <li>The second line moves the pointer back to the previous head.</li>
 <li>Third line is self explanatory (commits the changes with a message).</li>
 <li>Last tine updates the working copy to reflect the new commit</li>
@@ -259,6 +259,17 @@
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28459915-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
 
 
 
