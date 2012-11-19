@@ -4,7 +4,9 @@
         <title>Bip to Energymech IRC log converter</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes ATOM Feed" />
+        
+        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
+        
         
 
         <!--[if IE]>
@@ -16,10 +18,7 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
-        <script type="text/javascript" src="./static/js/prototype.js"></script>
-        <script type="text/javascript" src="./static/js/scriptaculous.js?load=effects,builder"></script>
-        <script type="text/javascript" src="./static/js/lightbox.js"></script>
-        <link rel="stylesheet" href="./static/js/lightbox.css" type="text/css" media="screen" />
+
 </head>
 
 <body id="index" class="home">
@@ -32,38 +31,43 @@
                 
                 
                 
-                    <li ><a href="./category/rand.html">rand</a></li>
+                    <li class="active"><a href="./category/code.html">code</a></li>
                 
                     <li ><a href="./category/linux.html">linux</a></li>
                 
-                    <li class="active"><a href="./category/code.html">code</a></li>
+                    <li ><a href="./category/rand.html">rand</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-                
-<section id="content" class="body">    
-<article>
-        <header> <h1 class="entry-title"><a href=""
-        rel="bookmark" title="Permalink to Bip to Energymech IRC log converter">Bip to Energymech IRC log converter</a></h1> 
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="bip-to-energymech.html" rel="bookmark"
+           title="Permalink to Bip to Energymech IRC log converter">Bip to Energymech IRC log converter</a></h1>
+      
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="fuzzmz">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
- </header>
-        <div class="entry-content">
-        <footer class="post-info">
-        <abbr class="published" title="2012-03-27T19:34:06">
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2012-03-27T00:00:00">
                 Tue 27 March 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href="./author/Serban Constantin.html">Serban Constantin</a>
+                By <a class="url fn" href="./author/serban-constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href="./category/code.html">code</a>. </p>
-<p>tags: <a href="./tag/irc.html">irc</a><a href="./tag/python.html">python</a><a href="./tag/bip.html">bip</a><a href="./tag/energymech.html">energymech</a><a href="./tag/log.html">log</a><a href="./tag/log converter.html">log converter</a></p>
+<p>tags: <a href="./tag/irc.html">irc</a><a href="./tag/python.html">python</a><a href="./tag/bip.html">bip</a><a href="./tag/energymech.html">energymech</a><a href="./tag/log.html">log</a><a href="./tag/log-converter.html">log converter</a></p>
 
 
 </footer><!-- /.post-info -->
-        <p>The great thing about knowing how to code is being able to build things that help you out.</p>
+      <p>The great thing about knowing how to code is being able to build things that help you out.</p>
 <p>I've recently had to convert some IRC logs from the <a href="http://bip.milkypond.org/">Bip</a> format to the Energymech format used by <a href="http://wiki.znc.in/">ZNC</a> in order to be able to then generate some statistics from them using <a href="http://pisg.sourceforge.net/">pisg</a>.</p>
 <p>My first approach was to hack together some macros and just plow through the logs (fortunately there weren't that many), but this had several downsides:</p>
 <ol>
@@ -96,23 +100,23 @@
 <hr />
 <h2><a href="https://github.com/fuzzmz/bip-to-energymech">Download</a></h2>
 <p>I've of course made the code public. It can be found and downloaded from <a href="https://github.com/fuzzmz/bip-to-energymech">GitHub</a> which is also the place to report bugs or make suggestions.</p>
-        </div><!-- /.entry-content -->
-        
-        <div class="comments">
-        <h2>Comments !</h2>
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-               var disqus_identifier = "bip-to-energymech.html";
-               (function() {
-               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-               dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
-               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-        </div>
-        
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "bip-to-energymech.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
 
-</article>
+  </article>
 </section>
 
         <section id="extras" class="body">
@@ -122,22 +126,12 @@
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-28459915-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
 
 
 

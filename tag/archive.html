@@ -4,7 +4,9 @@
         <title>QWERTY - fast keystrokes - archive</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        <link href=".././feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes ATOM Feed" />
+        
+        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
+        
         
 
         <!--[if IE]>
@@ -16,10 +18,7 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
-        <script type="text/javascript" src=".././static/js/prototype.js"></script>
-        <script type="text/javascript" src=".././static/js/scriptaculous.js?load=effects,builder"></script>
-        <script type="text/javascript" src=".././static/js/lightbox.js"></script>
-        <link rel="stylesheet" href=".././static/js/lightbox.css" type="text/css" media="screen" />
+
 </head>
 
 <body id="index" class="home">
@@ -32,11 +31,11 @@
                 
                 
                 
-                    <li ><a href=".././category/rand.html">rand</a></li>
+                    <li ><a href=".././category/code.html">code</a></li>
                 
                     <li ><a href=".././category/linux.html">linux</a></li>
                 
-                    <li ><a href=".././category/code.html">code</a></li>
+                    <li ><a href=".././category/rand.html">rand</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
@@ -56,7 +55,7 @@
 
         
         <address class="vcard author">
-                By <a class="url fn" href=".././author/Serban Constantin.html">Serban Constantin</a>
+                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href=".././category/linux.html">linux</a>. </p>
@@ -99,7 +98,7 @@ date
 <p>What it does is create an archive named server_file_backup_$current-date and adds the folders and files specified on the line starting with <em>tar cvf</em>. Well, better said it first creates a tar archive, then it gzips it and deletes the original .tar; this is another point where the script could be improved, but hey, it works OK right now.</p>
 <p>The archive is saved under <strong>/home/backup</strong> and it is given all the rights except the capability for anyone to write to the file.</p>
 <p>Then all I have to do is make the script executable with:</p>
-<div class="codehilite"><pre><span class="nb">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">archive</span><span class="o">.</span><span class="n">sh</span>
+<div class="codehilite"><pre><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">archive</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
@@ -144,8 +143,8 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 
 <p>Now I just needed to add the jobs. I wanted to run the archiving script every night at 1am, and then at 1:30am the upload script. Why the 30 minute gap between the jobs? I want to have a margin of error in case I'll add to the script which makes the archive, or in case files get really large, so that I won't have the upload script try and run while the archive is being created.</p>
 <p>Anyway, the code for the jobs is:</p>
-<div class="codehilite"><pre><span class="o">*</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="sr">/home/</span><span class="n">backup</span><span class="o">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">archive</span><span class="o">.</span><span class="n">sh</span>
-<span class="mi">30</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="sr">/home/</span><span class="n">backup</span><span class="o">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">up</span><span class="o">.</span><span class="n">sh</span>
+<div class="codehilite"><pre><span class="o">*</span> 1 <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">backup</span><span class="p">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">archive</span><span class="p">.</span><span class="n">sh</span>
+30 1 <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">backup</span><span class="p">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">up</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
@@ -179,7 +178,10 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
         
         
         
-
+            </ol><!-- /#posts-list -->
+            
+            </section><!-- /#content -->
+        
     
 
 
@@ -190,22 +192,12 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-28459915-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
 
 
 

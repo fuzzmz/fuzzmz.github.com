@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>QWERTY - fast keystrokes</title><link>http://qwerty.fuzz.me.uk</link><description></description><atom:link href="http://qwerty.fuzz.me.uk/feeds/linux.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 20 Jan 2012 03:38:00 +0000</lastBuildDate><item><title>Up, up, backup!</title><link>http://qwerty.fuzz.me.uk/backups.html</link><description>&lt;p&gt;As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>QWERTY - fast keystrokes</title><link>http://fuzz.me.uk/</link><description></description><atom:link href="http://fuzz.me.uk/feeds/linux.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 20 Jan 2012 03:38:00 +0200</lastBuildDate><item><title>Up, up, backup!</title><link>http://fuzz.me.uk/backups.html</link><description>&lt;p&gt;As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.&lt;/p&gt;
 &lt;p&gt;In short, my backup needs are simple:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Archive the important data:&lt;ul&gt;
@@ -35,7 +35,7 @@ date
 &lt;p&gt;What it does is create an archive named server_file_backup_$current-date and adds the folders and files specified on the line starting with &lt;em&gt;tar cvf&lt;/em&gt;. Well, better said it first creates a tar archive, then it gzips it and deletes the original .tar; this is another point where the script could be improved, but hey, it works OK right now.&lt;/p&gt;
 &lt;p&gt;The archive is saved under &lt;strong&gt;/home/backup&lt;/strong&gt; and it is given all the rights except the capability for anyone to write to the file.&lt;/p&gt;
 &lt;p&gt;Then all I have to do is make the script executable with:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;chmod&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;archive&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;archive&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -80,8 +80,8 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 
 &lt;p&gt;Now I just needed to add the jobs. I wanted to run the archiving script every night at 1am, and then at 1:30am the upload script. Why the 30 minute gap between the jobs? I want to have a margin of error in case I'll add to the script which makes the archive, or in case files get really large, so that I won't have the upload script try and run while the archive is being created.&lt;/p&gt;
 &lt;p&gt;Anyway, the code for the jobs is:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="sr"&gt;/home/&lt;/span&gt;&lt;span class="n"&gt;backup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;archive&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
-&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="sr"&gt;/home/&lt;/span&gt;&lt;span class="n"&gt;backup&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;*&lt;/span&gt; 1 &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;backup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;archive&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+30 1 &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;backup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -99,7 +99,7 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
                                      had to use ncftp instead.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;I guess that's about it. In all honesty, if I had ssh access to another server I'd just use rsync for the backups, but seeing that I don't, this is the best method that came to mind.&lt;/p&gt;
-&lt;p&gt;In the next post I'll most likely talk about git and how I've integrated it with Pelican.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Serban Constantin</dc:creator><pubDate>Fri, 20 Jan 2012 03:38:00 +0000</pubDate><guid>http://qwerty.fuzz.me.uk/backups.html</guid><category>backup</category><category>ftp</category><category>archive</category></item><item><title>Lockout: no pass, no key</title><link>http://qwerty.fuzz.me.uk/locked-out.html</link><description>&lt;h2&gt;A foreword&lt;/h2&gt;
+&lt;p&gt;In the next post I'll most likely talk about git and how I've integrated it with Pelican.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Serban Constantin</dc:creator><pubDate>Fri, 20 Jan 2012 03:38:00 +0200</pubDate><guid>tag:fuzz.me.uk,2012-01-20:backups.html</guid><category>backup</category><category>ftp</category><category>archive</category></item><item><title>Lockout: no pass, no key</title><link>http://fuzz.me.uk/locked-out.html</link><description>&lt;h2&gt;A foreword&lt;/h2&gt;
 &lt;p&gt;As you may not know, I'm mostly a Microsoft tech junkie venturing into the wonderful world of Linux. I've visited this land from time to time, but never had the time or motivation to try and settle in, but all this is about to change as one of my New Years resolutions was to get my hands dirty in Linux.&lt;/p&gt;
 &lt;p&gt;Every new beginning is a learning experience, and what better way to learn than from the mistakes made (and the process of trying to fix them)? With this, I bring you my first - and probably not last - embarrassing story.&lt;/p&gt;
 &lt;hr /&gt;
@@ -134,7 +134,7 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 &lt;hr /&gt;
 &lt;h2&gt;There are no keys to this castle&lt;/h2&gt;
 &lt;p&gt;A short time passes after changing the passwd file and I decide to do a logout and log back in.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Permission&lt;/span&gt; &lt;span class="n"&gt;denied&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;publickey&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Permission&lt;/span&gt; &lt;span class="n"&gt;denied&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;publickey&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -164,4 +164,4 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 
 &lt;p&gt;Yes, I was in and victorious!&lt;/p&gt;
 &lt;p&gt;I quickly created a .ssh/authorized_keys file under my new login directory and started working on my backup strategy.&lt;/p&gt;
-&lt;p&gt;But about that, in the next blog update.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Serban Constantin</dc:creator><pubDate>Thu, 19 Jan 2012 23:52:00 +0000</pubDate><guid>http://qwerty.fuzz.me.uk/locked-out.html</guid><category>Linux</category><category>d'oh</category></item></channel></rss>
+&lt;p&gt;But about that, in the next blog update.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Serban Constantin</dc:creator><pubDate>Thu, 19 Jan 2012 23:52:00 +0200</pubDate><guid>tag:fuzz.me.uk,2012-01-19:locked-out.html</guid><category>Linux</category><category>d'oh</category></item></channel></rss>

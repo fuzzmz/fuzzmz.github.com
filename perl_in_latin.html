@@ -4,7 +4,9 @@
         <title>Meum Perlum equum</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes ATOM Feed" />
+        
+        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
+        
         
 
         <!--[if IE]>
@@ -16,10 +18,7 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
-        <script type="text/javascript" src="./static/js/prototype.js"></script>
-        <script type="text/javascript" src="./static/js/scriptaculous.js?load=effects,builder"></script>
-        <script type="text/javascript" src="./static/js/lightbox.js"></script>
-        <link rel="stylesheet" href="./static/js/lightbox.css" type="text/css" media="screen" />
+
 </head>
 
 <body id="index" class="home">
@@ -32,30 +31,35 @@
                 
                 
                 
-                    <li class="active"><a href="./category/rand.html">rand</a></li>
+                    <li ><a href="./category/code.html">code</a></li>
                 
                     <li ><a href="./category/linux.html">linux</a></li>
                 
-                    <li ><a href="./category/code.html">code</a></li>
+                    <li class="active"><a href="./category/rand.html">rand</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-                
-<section id="content" class="body">    
-<article>
-        <header> <h1 class="entry-title"><a href=""
-        rel="bookmark" title="Permalink to Meum Perlum equum">Meum Perlum equum</a></h1> 
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="perl_in_latin.html" rel="bookmark"
+           title="Permalink to Meum Perlum equum">Meum Perlum equum</a></h1>
+      
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="fuzzmz">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
- </header>
-        <div class="entry-content">
-        <footer class="post-info">
-        <abbr class="published" title="2012-05-02T19:53:34">
+
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2012-05-02T00:00:00">
                 Wed 02 May 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href="./author/Serban Constantin.html">Serban Constantin</a>
+                By <a class="url fn" href="./author/serban-constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href="./category/rand.html">rand</a>. </p>
@@ -63,7 +67,7 @@
 
 
 </footer><!-- /.post-info -->
-        <p>I'm not one of the fans of Perl and would chose Python over it every day of the week, but I still have to admit that it has some really fun things built around it.</p>
+      <p>I'm not one of the fans of Perl and would chose Python over it every day of the week, but I still have to admit that it has some really fun things built around it.</p>
 <p>So, you know how, in order to have a good programming language, you need to have a good lexical structure. Most programming languages are based on English, which, let's be honest here, isn't the most consistent language out there when it comes to grammar and structure. This would also mean that programming languages based on English could be improved if they were based on some other language, right?</p>
 <p>Well, someone though about that and decided to write a module that makes it possible to write Perl programs in Latin. You can find the module and the reasoning behind it <a href="http://www.csse.monash.edu.au/~damian/papers/HTML/Perligata.html">here</a>.</p>
 <p>Just for fun, here's the code for the <a href="http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">sieve of Eratosthenes</a> (sic, it's a Greek mathematical algorithm for finding all the prime numbers up to a given limit.)</p>
@@ -80,23 +84,23 @@
 
 
 <p>Believe it or not that is absolutely grammatically correct Latin.</p>
-        </div><!-- /.entry-content -->
-        
-        <div class="comments">
-        <h2>Comments !</h2>
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-               var disqus_identifier = "perl_in_latin.html";
-               (function() {
-               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-               dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
-               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-        </div>
-        
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "perl_in_latin.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
 
-</article>
+  </article>
 </section>
 
         <section id="extras" class="body">
@@ -106,22 +110,12 @@
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-28459915-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
 
 
 
