@@ -4,9 +4,7 @@
         <title>QWERTY - fast keystrokes - sleep</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        
-        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
-        
+        <link href=".././feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes ATOM Feed" />
         
 
         <!--[if IE]>
@@ -18,7 +16,10 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
-
+        <script type="text/javascript" src=".././static/js/prototype.js"></script>
+        <script type="text/javascript" src=".././static/js/scriptaculous.js?load=effects,builder"></script>
+        <script type="text/javascript" src=".././static/js/lightbox.js"></script>
+        <link rel="stylesheet" href=".././static/js/lightbox.css" type="text/css" media="screen" />
 </head>
 
 <body id="index" class="home">
@@ -31,11 +32,11 @@
                 
                 
                 
-                    <li ><a href=".././category/code.html">code</a></li>
+                    <li ><a href=".././category/rand.html">rand</a></li>
                 
                     <li ><a href=".././category/linux.html">linux</a></li>
                 
-                    <li ><a href=".././category/rand.html">rand</a></li>
+                    <li ><a href=".././category/code.html">code</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
@@ -55,7 +56,7 @@
 
         
         <address class="vcard author">
-                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
+                By <a class="url fn" href=".././author/Serban Constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href=".././category/rand.html">rand</a>. </p>
@@ -67,7 +68,7 @@
 <p>From time to time I my life warps and distorts and I manage to get myself stuck in a loop: go to bed at 9am, wake up at 4pm, spend the rest of the "day" coding, listening to music and chatting with people.</p>
 <p>I guess this behavior is also enabled by the fact that nothing much happens during my new sleep hours; let's be honest here, most normal people are either at work or school during that interval, or it's too early for the US denizens to be online, so starting the day at 4pm actually makes sense, in a weird and twisted way, not to mention the fact that I love the night and the tranquility it brings. There's nothing like looking outside at the darkness, counting the few passing cars between writing lines of code. Maybe it's a bit too romanced but night seems to be the time of day when I manage to focus the best.</p>
 <p>I also find myself procrastinating a whole lot more than before, despite being more productive than I've been in ages; what's even weirder is that procrastination takes the form of reading: I've slowly started to read again, and to my huge surprise actually devoured a book in only two nights between coding sessions.</p>
-<p>This might also have something to do with the book, <a href="http://www.amazon.co.uk/dp/1846059372">Ready Player One</a> by Ernest Cline, a book aptly defined as nostalgia porn<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>, built around a contest deeply connected to all things 80s geek, set in a virtual world, filled with danger and mistery. I actually read it as a sort of Neverending Story for the inner-geek and will most likely go through it again after watching the movies it quoted that I've, to my dire shame, missed. In any case, you can find <a href="http://www.goodreads.com/review/show/264852855">my review of the book</a>, and trust me, you'll love this book regardless of your views on geekdom, the 80s and fantasy stories.</p>
+<p>This might also have something to do with the book, <a href="http://www.amazon.co.uk/dp/1846059372">Ready Player One</a> by Ernest Cline, a book aptly defined as nostalgia porn<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>, built around a contest deeply connected to all things 80s geek, set in a virtual world, filled with danger and mistery. I actually read it as a sort of Neverending Story for the inner-geek and will most likely go through it again after watching the movies it quoted that I've, to my dire shame, missed. In any case, you can find <a href="http://www.goodreads.com/review/show/264852855">my review of the book</a>, and trust me, you'll love this book regardless of your views on geekdom, the 80s and fantasy stories.</p>
 <p>But I digresss, so let's get back to the unknown thing I was trying to write about.</p>
 <p>The main reason I love coding is because it's a perfect form of escapism: what better way to escape a life you're not really thrilled with, at least at this current point, than to know that you have absolute control, which is what code gives you. You are the one manipulating the world under your fingers, in a much more personal and direct way than just playing a computer game, for example; everything that happens is a direct consequence of your actions and everything is self-reliant and safe from outside influences. Put it simply, there's no one else to blame for the shit that happens except yourself.</p>
 <p>And escapism is the thing I need most dearly right now, despite not really being able to afford it. Why is that? Because every time I'm stuck in this loop things tend to start deteriorating: I get less and less sleep, neglect eating, my social interactions start to suffer (despite being online 99% of the time I'm awake), and then eventually I'll start losing my focus.</p>
@@ -81,7 +82,7 @@
 <hr />
 <ol>
 <li id="fn:1">
-<p><a href="http://www.goodreads.com/review/show/173171387">Flannery's review on Goodreads</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="http://www.goodreads.com/review/show/173171387">Flannery's review on Goodreads</a>&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div><p>There are <a href=".././patterns.html#disqus_thread">comments</a>.</p>
@@ -100,10 +101,7 @@
         
         
         
-            </ol><!-- /#posts-list -->
-            
-            </section><!-- /#content -->
-        
+
     
 
 
@@ -114,12 +112,22 @@
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-28459915-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 
 
 

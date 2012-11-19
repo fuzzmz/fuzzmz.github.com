@@ -4,9 +4,7 @@
         <title>Up, up, backup!</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        
-        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
-        
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes ATOM Feed" />
         
 
         <!--[if IE]>
@@ -18,7 +16,10 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
-
+        <script type="text/javascript" src="./static/js/prototype.js"></script>
+        <script type="text/javascript" src="./static/js/scriptaculous.js?load=effects,builder"></script>
+        <script type="text/javascript" src="./static/js/lightbox.js"></script>
+        <link rel="stylesheet" href="./static/js/lightbox.css" type="text/css" media="screen" />
 </head>
 
 <body id="index" class="home">
@@ -31,35 +32,30 @@
                 
                 
                 
-                    <li ><a href="./category/code.html">code</a></li>
+                    <li ><a href="./category/rand.html">rand</a></li>
                 
                     <li class="active"><a href="./category/linux.html">linux</a></li>
                 
-                    <li ><a href="./category/rand.html">rand</a></li>
+                    <li ><a href="./category/code.html">code</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-        
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="backups.html" rel="bookmark"
-           title="Permalink to Up, up, backup!">Up, up, backup!</a></h1>
-      
+                
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href=""
+        rel="bookmark" title="Permalink to Up, up, backup!">Up, up, backup!</a></h1> 
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="fuzzmz">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-
-    </header>
-
-    <div class="entry-content">
-      <footer class="post-info">
+ </header>
+        <div class="entry-content">
+        <footer class="post-info">
         <abbr class="published" title="2012-01-20T03:38:00">
                 Fri 20 January 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href="./author/serban-constantin.html">Serban Constantin</a>
+                By <a class="url fn" href="./author/Serban Constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href="./category/linux.html">linux</a>. </p>
@@ -67,7 +63,7 @@
 
 
 </footer><!-- /.post-info -->
-      <p>As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.</p>
+        <p>As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.</p>
 <p>In short, my backup needs are simple:</p>
 <ol>
 <li>Archive the important data:<ul>
@@ -103,7 +99,7 @@ date
 <p>What it does is create an archive named server_file_backup_$current-date and adds the folders and files specified on the line starting with <em>tar cvf</em>. Well, better said it first creates a tar archive, then it gzips it and deletes the original .tar; this is another point where the script could be improved, but hey, it works OK right now.</p>
 <p>The archive is saved under <strong>/home/backup</strong> and it is given all the rights except the capability for anyone to write to the file.</p>
 <p>Then all I have to do is make the script executable with:</p>
-<div class="codehilite"><pre><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">archive</span><span class="p">.</span><span class="n">sh</span>
+<div class="codehilite"><pre><span class="nb">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="n">archive</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 
 
@@ -148,8 +144,8 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 
 <p>Now I just needed to add the jobs. I wanted to run the archiving script every night at 1am, and then at 1:30am the upload script. Why the 30 minute gap between the jobs? I want to have a margin of error in case I'll add to the script which makes the archive, or in case files get really large, so that I won't have the upload script try and run while the archive is being created.</p>
 <p>Anyway, the code for the jobs is:</p>
-<div class="codehilite"><pre><span class="o">*</span> 1 <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">backup</span><span class="p">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">archive</span><span class="p">.</span><span class="n">sh</span>
-30 1 <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">backup</span><span class="p">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">up</span><span class="p">.</span><span class="n">sh</span>
+<div class="codehilite"><pre><span class="o">*</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="sr">/home/</span><span class="n">backup</span><span class="o">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">archive</span><span class="o">.</span><span class="n">sh</span>
+<span class="mi">30</span> <span class="mi">1</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="sr">/home/</span><span class="n">backup</span><span class="o">.</span><span class="n">scripts</span><span class="o">/</span><span class="n">up</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 
 
@@ -168,23 +164,23 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 </ol>
 <p>I guess that's about it. In all honesty, if I had ssh access to another server I'd just use rsync for the backups, but seeing that I don't, this is the best method that came to mind.</p>
 <p>In the next post I'll most likely talk about git and how I've integrated it with Pelican.</p>
-    </div><!-- /.entry-content -->
-    
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_identifier = "backups.html";
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-    </div>
-    
+        </div><!-- /.entry-content -->
+        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "backups.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+        
 
-  </article>
+</article>
 </section>
 
         <section id="extras" class="body">
@@ -194,12 +190,22 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-28459915-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 
 
 
