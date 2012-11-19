@@ -107,7 +107,8 @@
 
 </footer><!-- /.post-info -->
                 <p>Have you ever made a commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how:</p>
-<div class="codehilite"><pre><span class="n">git</span> <span class="n">reset</span> 56<span class="n">e05fced</span> #<span class="n">resets</span> <span class="n">index</span> <span class="n">to</span> <span class="n">former</span> <span class="n">commit ...</span></pre></div>
+<div class="codehilite"><pre><span class="n">git</span> <span class="n">reset</span> 56<span class="n">e05fced</span>
+<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">soft</span> <span class="n">HEAD</span><span class="p">@{</span>1 ...</pre></div>
                 <a class="readmore" href=".././git-revert-specific.html">read more</a>
                 <p>There are <a href=".././git-revert-specific.html#disqus_thread">comments</a>.</p>
                 </div><!-- /.entry-content -->

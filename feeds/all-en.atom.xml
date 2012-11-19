@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>QWERTY - fast keystrokes</title><link href="http://fuzz.me.uk/" rel="alternate"></link><link href="http://fuzz.me.uk/feeds/all-en.atom.xml" rel="self"></link><id>http://fuzz.me.uk/</id><updated>2012-11-19T00:00:00+02:00</updated><entry><title>Git revert to commit</title><link href="http://fuzz.me.uk/git-revert-specific.html" rel="alternate"></link><updated>2012-11-19T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-19:git-revert-specific.html</id><summary type="html">&lt;p&gt;Have you ever made a commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt; #&lt;span class="n"&gt;resets&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;former&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;replace&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;56e05fced&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;soft&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt;&lt;span class="p"&gt;@{&lt;/span&gt;1&lt;span class="p"&gt;}&lt;/span&gt; #&lt;span class="n"&gt;moves&lt;/span&gt; &lt;span class="n"&gt;pointer&lt;/span&gt; &lt;span class="n"&gt;back&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;previous&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;soft&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt;&lt;span class="p"&gt;@{&lt;/span&gt;1&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Revert&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;&amp;quot;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;hard&lt;/span&gt; #&lt;span class="n"&gt;updates&lt;/span&gt; &lt;span class="n"&gt;working&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;reflect&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;hard&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Just replace 56e05fced with the commit code you want to rever to&lt;/p&gt;
-&lt;p&gt;The first line resets the index to a former commit, 56e05fced in this case.
-The second line moves the pointer back to the previous head.
-Third line is self explanatory
-Last tine updates the working copy to reflect the new commit&lt;/p&gt;
+&lt;p&gt;Just replace 56e05fced with the commit code you want to revert to.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The first line resets the index to a former commit, 56e05fced in this case.&lt;/li&gt;
+&lt;li&gt;The second line moves the pointer back to the previous head.&lt;/li&gt;
+&lt;li&gt;Third line is self explanatory (commits the changes with a message).&lt;/li&gt;
+&lt;li&gt;Last tine updates the working copy to reflect the new commit&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;Then all you have to do is push the changes with a &lt;code&gt;git push origin master&lt;/code&gt; or whatever your branch may be.&lt;/p&gt;</summary><category term="git"></category><category term="revert"></category><category term="undo"></category></entry><entry><title>Quick command prompt to path</title><link href="http://fuzz.me.uk/quickcmd.html" rel="alternate"></link><updated>2012-09-08T00:00:00+03:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-09-08:quickcmd.html</id><summary type="html">&lt;p&gt;If you're working a lot with the command prompt and Windows Explorer you find yourself either having to copy/paste a lot of paths into cmd.exe or just wasting time writing them by hand. Windows 8 addresses that with a (more visible) open command prompt here button, but the functionality already exists in Windows 7 and maybe even earlier.&lt;/p&gt;
 &lt;p&gt;The first way in achieving that is &lt;strong&gt;shift+right clicking&lt;/strong&gt; on a folder and clicking on the option "Open command window here".&lt;/p&gt;
 &lt;p&gt;&lt;img alt="shift-right-click" src="/images/cmd_click.png" /&gt;&lt;/p&gt;
