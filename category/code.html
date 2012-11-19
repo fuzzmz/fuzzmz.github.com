@@ -4,7 +4,9 @@
         <title>QWERTY - fast keystrokes - code</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
-        <link href=".././feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes ATOM Feed" />
+        
+        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
+        
         
 
         <!--[if IE]>
@@ -16,10 +18,7 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
-        <script type="text/javascript" src=".././static/js/prototype.js"></script>
-        <script type="text/javascript" src=".././static/js/scriptaculous.js?load=effects,builder"></script>
-        <script type="text/javascript" src=".././static/js/lightbox.js"></script>
-        <link rel="stylesheet" href=".././static/js/lightbox.css" type="text/css" media="screen" />
+
 </head>
 
 <body id="index" class="home">
@@ -32,11 +31,11 @@
                 
                 
                 
-                    <li ><a href=".././category/rand.html">rand</a></li>
+                    <li class="active"><a href=".././category/code.html">code</a></li>
                 
                     <li ><a href=".././category/linux.html">linux</a></li>
                 
-                    <li class="active"><a href=".././category/code.html">code</a></li>
+                    <li ><a href=".././category/rand.html">rand</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
@@ -48,68 +47,54 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././extract-archive-recursively.html">Enhanc... erm, extract!</a></h1> 
+                    <h1 class="entry-title"><a href=".././bip-to-energymech.html">Bip to Energymech IRC log converter</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-06-07T22:44:39">
-                Thu 07 June 2012
+        <abbr class="published" title="2012-11-19T19:46:18">
+                Mon 19 November 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href=".././author/Serban Constantin.html">Serban Constantin</a>
+                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href=".././category/code.html">code</a>. </p>
-<p>tags: <a href=".././tag/7-zip.html">7-zip</a><a href=".././tag/recursive.html">recursive</a><a href=".././tag/archives.html">archives</a><a href=".././tag/bat.html">bat</a></p>
+<p>tags: <a href=".././tag/irc.html">irc</a><a href=".././tag/python.html">python</a><a href=".././tag/bip.html">bip</a><a href=".././tag/energymech.html">energymech</a><a href=".././tag/log.html">log</a><a href=".././tag/log-converter.html">log converter</a></p>
 
 
-</footer><!-- /.post-info --><p>We've all been there, haven't we? We just downloaded the latest seaso... erm, Linux distro and it came with lots of folders which in turn contain lots of archives, one folder per episode. One way to do things is to just extract each episode... erm, distro, by hand, watch it, move to the next and so on.</p>
-<p>Another way would be to write a Windows batch script to make <a href="../static/www.7-zip.org">7-zip</a> go through all the archives and extract their contents, which means you run it once and end up with all the files out.</p>
-<div class="codehilite"><pre><span class="k">FOR</span> <span class="n">/D</span> <span class="n">/r</span> <span class="nv">%%F</span> in (<span class="s2">&quot;*&quot;</span>) <span class="k">DO</span> (
-    pushd <span class="nv">%CD%</span>
-    <span class="k">cd</span> <span class="nv">%%F</span>
-        <span class="k">FOR</span> <span class="nv">%%X</span> in (*.rar *.zip) <span class="k">DO</span> (
-            <span class="s2">&quot;C:\Program Files\7-zip\7z.exe&quot;</span> x <span class="nv">%%X</span>
-        )
-    popd
-)
+</footer><!-- /.post-info --><p>The great thing about knowing how to code is being able to build things that help you out.</p>
+<p>I've recently had to convert some IRC logs from the <a href="http://bip.milkypond.org/">Bip</a> format to the Energymech format used by <a href="http://wiki.znc.in/">ZNC</a> in order to be able to then generate some statistics from them using <a href="http://pisg.sourceforge.net/">pisg</a>.</p>
+<p>My first approach was to hack together some macros and just plow through the logs (fortunately there weren't that many), but this had several downsides:</p>
+<ol>
+<li>by using macros I had to take out certain data which could be used to generate statistics</li>
+<li>it's a manual job and doesn't scale well time-wise, despite being able to automate it to some extent</li>
+<li>can't be easily shared with others</li>
+</ol>
+<p>After finishing parsing the logs I decided that it's best to make a learning experience out of it and code a Python script that goes through all the logs and generates the correct output; I knew it wasn't a difficult task (heck, I've thrown it together in around 3 hours of coding and debugging overall) so all I had to do was get cracking.</p>
+<p>The largest issue I had with it was regarding the way Python handles regex substitution.</p>
+<blockquote class="twitter-tweet tw-align-center"><p>Whoever makes me understand why this Python regex substitution doesn't work gets a cookie and my eternal gratitude. <a href="http://t.co/fj8Nn6i4" title="http://bit.ly/GP8lM3">bit.ly/GP8lM3</a></p>&mdash; Serban Constantin (@fuzzmz) <a href="https://twitter.com/fuzzmz/status/184431795746516992" data-datetime="2012-03-27T00:09:01+00:00">March 27, 2012</a></blockquote>
+
+<script src="../static/platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Thanks to the great wonder that is the Internet I could get an answer to my question in a couple of hours and continue on my marry way.</p>
+<blockquote class="twitter-tweet tw-align-center"><p>D'oh, strings in Python are immutable so my re.sub doesn't modify the string in place which means I need to, you know, save the result!</p>&mdash; Serban Constantin (@fuzzmz) <a href="https://twitter.com/fuzzmz/status/184479937229627392" data-datetime="2012-03-27T03:20:19+00:00">March 27, 2012</a></blockquote>
+
+<script src="../static/platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Another nice tip I got was to pre-compile the regex before going through the loop which speeds up things considerably when dealing with lots of text. It was as simple as a:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">talk_mask</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;\!.*?\:&#39;</span><span class="p">)</span>
+<span class="n">connect_mask</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;\!.*?\has&#39;</span><span class="p">)</span>
+<span class="n">quit_info</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;\quit.*?\]&#39;</span><span class="p">)</span>
+<span class="n">find_nick</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;\&lt;* .*?\!&#39;</span><span class="p">)</span>
+<span class="n">time_mask</span>    <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">&#39;([0-1]\d|2[0-3]):([0-5]\d):([0-5]\d)&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Note that if you're running a 64bit OS but don't have the 64bit version of 7-zip installed you need to change "C:\Program Files\7-zip\7z.exe" x %%X into "C:\Program Files (x86)\7-zip\7z.exe" x %%X</p>
-<p>Launch the bat, and all rar's/zips will be extracted into the folder they are contained in.</p>
-<p>Now let's be helpful and dissect the script, shall we?</p>
-<div class="codehilite"><pre><span class="k">FOR</span> <span class="n">/D</span> <span class="n">/r</span> <span class="nv">%%F</span> in (<span class="s2">&quot;*&quot;</span>) <span class="k">DO</span> (
-</pre></div>
-
-
-<p>This is a simple for loop to go through all folders in the current directory, and put the path into a variable %%F.</p>
-<div class="codehilite"><pre>pushd <span class="nv">%CD%</span>
-</pre></div>
-
-
-<p>Put the current directory into memory.</p>
-<div class="codehilite"><pre><span class="k">cd</span> <span class="nv">%%F</span>
-</pre></div>
-
-
-<p>Set the folder from variable %%F as the current directory.</p>
-<div class="codehilite"><pre><span class="k">FOR</span> <span class="nv">%%X</span> in (*.rar *.zip) <span class="k">DO</span> (
-</pre></div>
-
-
-<p>For all the archives (rar and zip) in the current folder, do:</p>
-<div class="codehilite"><pre><span class="s2">&quot;C:\Program Files\7-zip\7z.exe&quot;</span> x <span class="nv">%%X</span>
-</pre></div>
-
-
-<p>Run 7-zip on the files with the extract parameter (basically call the command line version of 7-zip telling it to extract the current archive)</p>
-<div class="codehilite"><pre>popd
-</pre></div>
-
-
-<p>Return to the previous directory stored in memory.</p>
-<p>That's it! Pretty simple and efficient, isn't it?</p><p>There are <a href=".././extract-archive-recursively.html#disqus_thread">comments</a>.</p>
+<hr />
+<h2><a href="https://github.com/fuzzmz/bip-to-energymech">Download</a></h2>
+<p>I've of course made the code public. It can be found and downloaded from <a href="https://github.com/fuzzmz/bip-to-energymech">GitHub</a> which is also the place to report bugs or make suggestions.</p><p>There are <a href=".././bip-to-energymech.html#disqus_thread">comments</a>.</p>
                 </article>
                 
             </aside><!-- /#featured -->
@@ -117,58 +102,58 @@
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <hr />
-                        <ol id="posts-list" class="hfeed">
+                    <ol id="posts-list" class="hfeed">
             
         
         
         
-        
+            
 
         
          
             
             <li><article class="hentry">    
                 <header>
-                        <h1><a href=".././bip-to-energymech.html" rel="bookmark" title="Permalink to Bip to Energymech IRC log converter">Bip to Energymech IRC log converter</a></h1>
+                    <h1><a href=".././extract-archive-recursively.html" rel="bookmark"
+                           title="Permalink to Enhanc... erm, extract!">Enhanc... erm, extract!</a></h1>
                 </header>
                 
                 <div class="entry-content">
                 <footer class="post-info">
-        <abbr class="published" title="2012-03-27T19:34:06">
-                Tue 27 March 2012
+        <abbr class="published" title="2012-11-19T19:46:18">
+                Mon 19 November 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href=".././author/Serban Constantin.html">Serban Constantin</a>
+                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href=".././category/code.html">code</a>. </p>
-<p>tags: <a href=".././tag/irc.html">irc</a><a href=".././tag/python.html">python</a><a href=".././tag/bip.html">bip</a><a href=".././tag/energymech.html">energymech</a><a href=".././tag/log.html">log</a><a href=".././tag/log converter.html">log converter</a></p>
+<p>tags: <a href=".././tag/7-zip.html">7-zip</a><a href=".././tag/recursive.html">recursive</a><a href=".././tag/archives.html">archives</a><a href=".././tag/bat.html">bat</a></p>
 
 
 </footer><!-- /.post-info -->
-                <p>The great thing about knowing how to code is being able to build things that help you out.</p>
-<p>I've recently had to convert some IRC logs from the <a href="http://bip.milkypond.org/">Bip</a> format to the Energymech format used by <a href="http://wiki.znc.in/">ZNC</a> in order to be able to then generate some statistics from them ...</p>
-                <a class="readmore" href=".././bip-to-energymech.html">read more</a>
-                <p>There are <a href=".././bip-to-energymech.html#disqus_thread">comments</a>.</p>
+                <p>We've all been there, haven't we? We just downloaded the latest seaso... erm, Linux distro and it came with lots of folders which in turn contain lots of archives, one folder per episode. One way to do things is to just extract each episode... erm, distro, by hand ...</p>
+                <a class="readmore" href=".././extract-archive-recursively.html">read more</a>
+                <p>There are <a href=".././extract-archive-recursively.html#disqus_thread">comments</a>.</p>
                 </div><!-- /.entry-content -->
             </article></li>
         
         
+            </ol><!-- /#posts-list -->
             
+                
 <p class="paginator">
     
     Page 1 / 1
     
 </p>
 
+            
+            </section><!-- /#content -->
         
-
     
-    </ol><!-- /#posts-list -->
-    </section><!-- /#content -->
-
 
 
         <section id="extras" class="body">
@@ -178,22 +163,12 @@
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-28459915-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
 
 
 
