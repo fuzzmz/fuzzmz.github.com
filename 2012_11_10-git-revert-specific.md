@@ -4,7 +4,7 @@ Tags: git, revert, undo
 Category: rand
 Slug: git-revert-specific
 
-Have you ever made a commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how:
+Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:
 
 	:::git
 	git reset 56e05fced
