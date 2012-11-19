@@ -18,10 +18,7 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
-<script type="text/javascript" src="./static/js/prototype.js"></script>
-<script type="text/javascript" src="./static/js/scriptaculous.js?load=effects,builder"></script>
-<script type="text/javascript" src="./static/js/lightbox.js"></script>
-<link rel="stylesheet" href="./static/js/lightbox.css" type="text/css" media="screen" />
+
 </head>
 
 <body id="index" class="home">
@@ -78,7 +75,7 @@
 <li>Repeat 1. and 2. daily.</li>
 </ol>
 <hr />
-<h2 id="archiving-the-data">Archiving the data</h2>
+<h2>Archiving the data</h2>
 <p>This is a really simple bash script which creates a .tar.gz archive of the folders I specify. I could further improve the script by making it do incremental backups instead of creating a new archive each day, but considering that this is a fast and dirty version of it, and that I don't have that much stuff to back up, it'll do for now.</p>
 <div class="codehilite"><pre><span class="c">#!/bin/sh</span>
 date
@@ -106,7 +103,7 @@ date
 
 
 <hr />
-<h2 id="uploading-the-archives">Uploading the archive(s)</h2>
+<h2>Uploading the archive(s)</h2>
 <p>A backup wouldn't really be a backup if it lives on the same system you're doing it on, now would it? Now, there are a couple of ways to move the data out, but I decided to simply FTP it out to the webserver which hosts my main blog.</p>
 <p>I initially tried the script using the built-in ftp utility but didn't manage to get it to work, so I looked around and settled for ncftp; debugging the problem would've been more interesting and a better learning experience but I wanted to get the backups up and running as soon as possible, so this will be a future exercise on my part.</p>
 <p>The script is a simple one which logs in to the remote server using a provided username and password and uploads all archives to a pre-specified directory.</p>
@@ -136,7 +133,7 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 <li>Upload it to the remote server.</li>
 </ol>
 <hr />
-<h2 id="the-magic-of-cron">The magic of cron</h2>
+<h2>The magic of cron</h2>
 <p>Now all I have to do is make sure that the scripts run daily so that in case of something bad happening I don't have a lot of data missing. Of course, nothing really stops me running the scripts more often than that, but it's a nice trade-off between the size of the files and how much new data there is added.</p>
 <p>Linux has something very similar to the Windows Task Scheduler called cron; what it does is allows users to schedule jobs (commands or shell scripts) to run periodically at certain times or dates.</p>
 <p>In order for my scripts to run periodically I had to add them to the <strong>crontab</strong> file, the configuration file for cron which tells it when the jobs need to be executed. To get to the list all I had to do was run:</p>
@@ -154,7 +151,7 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 <p>The first line tells cron that it has to run archive.sh every day at 1am and up.sh at 1:30am.</p>
 <p>And with this I have a backup system in place.</p>
 <hr />
-<h2 id="to-do">To do</h2>
+<h2>To do</h2>
 <p>I know that things can be improved, and in no way do I say that this is perfect, but it suits my needs at this point in time.</p>
 <p>What can (and will be) improved upon are the following:</p>
 <ol>
@@ -205,7 +202,7 @@ ncftp -u<span class="s2">&quot;$USERNAME&quot;</span> -p<span class="s2">&quot;$
 
 
 </footer><!-- /.post-info -->
-                <h2 id="a-foreword">A foreword</h2>
+                <h2>A foreword</h2>
 <p>As you may not know, I'm mostly a Microsoft tech junkie venturing into the wonderful world of Linux. I've visited this land from time to time, but never had the time or motivation to try and settle in, but all this is about to change as ...</p>
                 <a class="readmore" href=".././locked-out.html">read more</a>
                 <p>There are <a href=".././locked-out.html#disqus_thread">comments</a>.</p>
