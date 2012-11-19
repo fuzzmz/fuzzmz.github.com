@@ -14,7 +14,7 @@ Have you ever made a commit only to figure out that it wasn't such a good idea? 
 
 Just replace 56e05fced with the commit code you want to revert to.
 
-1.  The first line resets the index to a former commit, 56e05fced in this case.
+1.  The first line resets the index to a former commit (56e05fced in this case).
 2.  The second line moves the pointer back to the previous head.
 3.  Third line is self explanatory (commits the changes with a message).
 4.  Last tine updates the working copy to reflect the new commit
