@@ -20,5 +20,3 @@ Just replace 56e05fced with the commit code you want to revert to.
 4.  Last tine updates the working copy to reflect the new commit
 
 Then all you have to do is push the changes with a ```git push origin master``` or whatever your branch may be.
-
-a small test
