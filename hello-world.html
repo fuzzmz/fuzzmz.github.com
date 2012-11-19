@@ -4,9 +4,7 @@
         <title>Hello world!</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        
-        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
-        
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes ATOM Feed" />
         
 
         <!--[if IE]>
@@ -18,7 +16,10 @@
 
         <!--[if lt IE 7]>
                 <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
-
+        <script type="text/javascript" src="./static/js/prototype.js"></script>
+        <script type="text/javascript" src="./static/js/scriptaculous.js?load=effects,builder"></script>
+        <script type="text/javascript" src="./static/js/lightbox.js"></script>
+        <link rel="stylesheet" href="./static/js/lightbox.css" type="text/css" media="screen" />
 </head>
 
 <body id="index" class="home">
@@ -31,64 +32,59 @@
                 
                 
                 
-                    <li ><a href="./category/code.html">code</a></li>
+                    <li class="active"><a href="./category/rand.html">rand</a></li>
                 
                     <li ><a href="./category/linux.html">linux</a></li>
                 
-                    <li class="active"><a href="./category/rand.html">rand</a></li>
+                    <li ><a href="./category/code.html">code</a></li>
                 
                 </ul></nav>
         </header><!-- /#banner -->
-        
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="hello-world.html" rel="bookmark"
-           title="Permalink to Hello world!">Hello world!</a></h1>
-      
+                
+<section id="content" class="body">    
+<article>
+        <header> <h1 class="entry-title"><a href=""
+        rel="bookmark" title="Permalink to Hello world!">Hello world!</a></h1> 
 <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="fuzzmz">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-
-    </header>
-
-    <div class="entry-content">
-      <footer class="post-info">
+ </header>
+        <div class="entry-content">
+        <footer class="post-info">
         <abbr class="published" title="2012-01-18T00:02:00">
                 Wed 18 January 2012
         </abbr>
 
         
         <address class="vcard author">
-                By <a class="url fn" href="./author/serban-constantin.html">Serban Constantin</a>
+                By <a class="url fn" href="./author/Serban Constantin.html">Serban Constantin</a>
         </address>
         
 <p>In <a href="./category/rand.html">rand</a>. </p>
-<p>tags: <a href="./tag/pelican.html">Pelican</a><a href="./tag/blog.html">blog</a></p>
+<p>tags: <a href="./tag/Pelican.html">Pelican</a><a href="./tag/blog.html">blog</a></p>
 
 
 </footer><!-- /.post-info -->
-      <p>This is my attempt at getting the <a class="reference external" href="http://pelican.readthedocs.org/en/2.7.2/index.html">Pelican</a> blog system installed on my new VPS.</p>
+        <p>This is my attempt at getting the <a class="reference external" href="http://pelican.readthedocs.org/en/2.7.2/index.html">Pelican</a> blog system installed on my new VPS.</p>
 <p>This is also a first <strong>Hello World</strong> blog post, as is customary. So, hello! I'm not sure yet what this blog is going to be about, most likely about my adventures in learning more about the wonderful word of Linux server administration and geekiness.</p>
 <p>It's also a bit weird to write this as I haven't learned much about the reStructredText format, which is used behind the scenes to write the posts.</p>
 <p>In any case, hope you'll have fun reading this as I have writing it.</p>
 
-    </div><!-- /.entry-content -->
-    
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_identifier = "hello-world.html";
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-    </div>
-    
+        </div><!-- /.entry-content -->
+        
+        <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "hello-world.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://qwertyfuzz.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+        
 
-  </article>
+</article>
 </section>
 
         <section id="extras" class="body">
@@ -98,12 +94,22 @@
 
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
                 </address><!-- /#about -->
 
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-28459915-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 
 
 
