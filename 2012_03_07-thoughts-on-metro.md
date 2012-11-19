@@ -1,3 +1,4 @@
+Date: 2012-03-07
 Title: Short thoughts on Windows 8 & Metro
 Tags: Windows, Metro, Windows 8, Microsoft, design, UX, UI, skeumorphic
 Category: rand

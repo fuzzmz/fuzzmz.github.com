@@ -1,3 +1,4 @@
+Date: 2012-02-22
 Title: A look at FTPbox
 Tags: FTPbox, Dropbox, syncing
 Category: rand

@@ -1,3 +1,4 @@
+Date: 2012-05-02
 Title: Meum Perlum equum
 Tags: perl, latin, geek
 Category: rand

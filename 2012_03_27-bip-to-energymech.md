@@ -1,3 +1,4 @@
+Date: 2012-03-27
 Title: Bip to Energymech IRC log converter
 Tags: irc, python, bip, energymech, log, log converter
 Category: code

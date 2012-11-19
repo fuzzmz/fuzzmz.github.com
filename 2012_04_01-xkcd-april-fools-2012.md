@@ -1,3 +1,4 @@
+Date: 2012-04-01
 Title: xkcd April Fools gag
 Tags: xkcd, april fools, comic
 Category: rand
