@@ -57,7 +57,7 @@ Find the line containing ```ChallengeResponseAuthentication``` and set it to yes
 
 Now all there's left to do is restart the SSH server and to test the change:
 
-```sudo /etc/init.d/ssh restart```
+	::: sudo /etc/init.d/ssh restart
 
 The next time you'll log in you should be greeted with a message asking for a verification code after entering the username and password.
 
@@ -71,4 +71,4 @@ The next time you'll log in you should be greeted with a message asking for a ve
 Bonus points
 ------------
 
-One advantage to this is the fact that even if you log in using a certificate (which bypases the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.
+One advantage to this is the fact that even if you log in using a certificate (which bypasses the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.
