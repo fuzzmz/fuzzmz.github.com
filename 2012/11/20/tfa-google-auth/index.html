@@ -79,24 +79,45 @@
 <h2>Installing google-authenticator PAM</h2>
 <p>I'm running Debian so this guide applies to Debian and Debian-based distributions.</p>
 <p>First of all we're going to need to install the build-essential package which will allow us to actually install the software.</p>
-<p><code>sudo apt-get install build-essential</code></p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span>
+</pre></div>
+
+
 <p>After we've got them installed we're going to install some dependencies needed for the PAM module to work (libpam-dev) as well as to retrieve (git) and easily configure the software (libqrencode-dev).</p>
-<p><code>sudo apt-get install git libpam-dev libqrencode-dev libpam0g-dev</code></p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span> <span class="n">libpam</span><span class="o">-</span><span class="n">dev</span> <span class="n">libqrencode</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpam0g</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+
+
 <p>Now let's go ahead and download the code:</p>
-<p><code>git clone https://code.google.com/p/google-authenticator/</code></p>
+<div class="codehilite"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">code</span><span class="p">.</span><span class="n">google</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">p</span><span class="o">/</span><span class="n">google</span><span class="o">-</span><span class="n">authenticator</span><span class="o">/</span>
+</pre></div>
+
+
 <p>This grabs the files from Google's server and creates a local copy. After that's done navigate to the google-authenticator/libpam directory and run</p>
-<p><code>sudo make install</code></p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+
+
 <p>Now that we've got everything installed it's time to actually set up the application. This is extremely easy, just run <code>google-authenticator</code> which will generate a QR code (thanks to the libqrencode-dev package); scan this code in the Google Authenticator mobile app (or enter the information by hand) and head back to your PC to finish setting up the software by answering the questions it asks.</p>
 <hr />
 <h2>Setting up the OS to use Challenge Response Authentication</h2>
 <p>Once the previous step is done we need to let the OS know that is has to use the newly installed PAM module. To do this we need to edit the <code>/etc/pam.d/common-auth</code> (by running <code>sudo vim /etc/pam.d/common-auth</code> for example) and adding the following line:</p>
-<p><code>auth    required                        pam_google_authenticator.so</code></p>
+<div class="codehilite"><pre><span class="n">auth</span>    <span class="n">required</span>                        <span class="n">pam_google_authenticator</span><span class="p">.</span><span class="n">so</span>
+</pre></div>
+
+
 <p>Next up is the ssh_config file in order to allow SSH to send challenge requests:</p>
-<p><code>sudo vim /etc/ssh/sshd_config</code></p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">sshd_config</span>
+</pre></div>
+
+
 <p>Find the line containing <code>ChallengeResponseAuthentication</code> and set it to yes (also uncomment it if it's commented out) so that it looks like:</p>
-<p><code>ChallengeResponseAuthentication yes</code></p>
+<div class="codehilite"><pre><span class="n">ChallengeResponseAuthentication</span> <span class="n">yes</span>
+</pre></div>
+
+
 <p>Now all there's left to do is restart the SSH server and to test the change:</p>
-<div class="codehilite"><pre><span class="p">:::</span> <span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
 </pre></div>
 
 

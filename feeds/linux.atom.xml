@@ -7,24 +7,45 @@
 &lt;h2&gt;Installing google-authenticator PAM&lt;/h2&gt;
 &lt;p&gt;I'm running Debian so this guide applies to Debian and Debian-based distributions.&lt;/p&gt;
 &lt;p&gt;First of all we're going to need to install the build-essential package which will allow us to actually install the software.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get install build-essential&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;essential&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;After we've got them installed we're going to install some dependencies needed for the PAM module to work (libpam-dev) as well as to retrieve (git) and easily configure the software (libqrencode-dev).&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get install git libpam-dev libqrencode-dev libpam0g-dev&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;libpam&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libqrencode&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libpam0g&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Now let's go ahead and download the code:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;git clone https://code.google.com/p/google-authenticator/&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;authenticator&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;This grabs the files from Google's server and creates a local copy. After that's done navigate to the google-authenticator/libpam directory and run&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo make install&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Now that we've got everything installed it's time to actually set up the application. This is extremely easy, just run &lt;code&gt;google-authenticator&lt;/code&gt; which will generate a QR code (thanks to the libqrencode-dev package); scan this code in the Google Authenticator mobile app (or enter the information by hand) and head back to your PC to finish setting up the software by answering the questions it asks.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2&gt;Setting up the OS to use Challenge Response Authentication&lt;/h2&gt;
 &lt;p&gt;Once the previous step is done we need to let the OS know that is has to use the newly installed PAM module. To do this we need to edit the &lt;code&gt;/etc/pam.d/common-auth&lt;/code&gt; (by running &lt;code&gt;sudo vim /etc/pam.d/common-auth&lt;/code&gt; for example) and adding the following line:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;auth    required                        pam_google_authenticator.so&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;auth&lt;/span&gt;    &lt;span class="n"&gt;required&lt;/span&gt;                        &lt;span class="n"&gt;pam_google_authenticator&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Next up is the ssh_config file in order to allow SSH to send challenge requests:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo vim /etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sshd_config&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Find the line containing &lt;code&gt;ChallengeResponseAuthentication&lt;/code&gt; and set it to yes (also uncomment it if it's commented out) so that it looks like:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ChallengeResponseAuthentication yes&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;ChallengeResponseAuthentication&lt;/span&gt; &lt;span class="n"&gt;yes&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Now all there's left to do is restart the SSH server and to test the change:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;:::&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
