@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>QWERTY - fast keystrokes</title><link href="http://fuzz.me.uk/" rel="alternate"></link><link href="http://fuzz.me.uk/feeds/linux.atom.xml" rel="self"></link><id>http://fuzz.me.uk/</id><updated>2012-01-20T03:38:00+02:00</updated><entry><title>Up, up, backup!</title><link href="http://fuzz.me.uk/backups.html" rel="alternate"></link><updated>2012-01-20T03:38:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-20:backups.html</id><summary type="html">&lt;p&gt;As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>QWERTY - fast keystrokes</title><link href="http://fuzz.me.uk/" rel="alternate"></link><link href="http://fuzz.me.uk/feeds/linux.atom.xml" rel="self"></link><id>http://fuzz.me.uk/</id><updated>2012-01-20T03:38:00+02:00</updated><entry><title>Up, up, backup!</title><link href="http://fuzz.me.uk/2012/Jan/20/backups/" rel="alternate"></link><updated>2012-01-20T03:38:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-20:2012/Jan/20/backups/</id><summary type="html">&lt;p&gt;As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.&lt;/p&gt;
 &lt;p&gt;In short, my backup needs are simple:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Archive the important data:&lt;ul&gt;
@@ -12,7 +12,7 @@
 &lt;li&gt;Repeat 1. and 2. daily.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
-&lt;h2&gt;Archiving the data&lt;/h2&gt;
+&lt;h2 id="archiving-the-data"&gt;Archiving the data&lt;/h2&gt;
 &lt;p&gt;This is a really simple bash script which creates a .tar.gz archive of the folders I specify. I could further improve the script by making it do incremental backups instead of creating a new archive each day, but considering that this is a fast and dirty version of it, and that I don't have that much stuff to back up, it'll do for now.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
 date
@@ -40,7 +40,7 @@ date
 
 
 &lt;hr /&gt;
-&lt;h2&gt;Uploading the archive(s)&lt;/h2&gt;
+&lt;h2 id="uploading-the-archives"&gt;Uploading the archive(s)&lt;/h2&gt;
 &lt;p&gt;A backup wouldn't really be a backup if it lives on the same system you're doing it on, now would it? Now, there are a couple of ways to move the data out, but I decided to simply FTP it out to the webserver which hosts my main blog.&lt;/p&gt;
 &lt;p&gt;I initially tried the script using the built-in ftp utility but didn't manage to get it to work, so I looked around and settled for ncftp; debugging the problem would've been more interesting and a better learning experience but I wanted to get the backups up and running as soon as possible, so this will be a future exercise on my part.&lt;/p&gt;
 &lt;p&gt;The script is a simple one which logs in to the remote server using a provided username and password and uploads all archives to a pre-specified directory.&lt;/p&gt;
@@ -70,7 +70,7 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 &lt;li&gt;Upload it to the remote server.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr /&gt;
-&lt;h2&gt;The magic of cron&lt;/h2&gt;
+&lt;h2 id="the-magic-of-cron"&gt;The magic of cron&lt;/h2&gt;
 &lt;p&gt;Now all I have to do is make sure that the scripts run daily so that in case of something bad happening I don't have a lot of data missing. Of course, nothing really stops me running the scripts more often than that, but it's a nice trade-off between the size of the files and how much new data there is added.&lt;/p&gt;
 &lt;p&gt;Linux has something very similar to the Windows Task Scheduler called cron; what it does is allows users to schedule jobs (commands or shell scripts) to run periodically at certain times or dates.&lt;/p&gt;
 &lt;p&gt;In order for my scripts to run periodically I had to add them to the &lt;strong&gt;crontab&lt;/strong&gt; file, the configuration file for cron which tells it when the jobs need to be executed. To get to the list all I had to do was run:&lt;/p&gt;
@@ -88,7 +88,7 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 &lt;p&gt;The first line tells cron that it has to run archive.sh every day at 1am and up.sh at 1:30am.&lt;/p&gt;
 &lt;p&gt;And with this I have a backup system in place.&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;To do&lt;/h2&gt;
+&lt;h2 id="to-do"&gt;To do&lt;/h2&gt;
 &lt;p&gt;I know that things can be improved, and in no way do I say that this is perfect, but it suits my needs at this point in time.&lt;/p&gt;
 &lt;p&gt;What can (and will be) improved upon are the following:&lt;/p&gt;
 &lt;ol&gt;
@@ -99,11 +99,11 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
                                      had to use ncftp instead.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;I guess that's about it. In all honesty, if I had ssh access to another server I'd just use rsync for the backups, but seeing that I don't, this is the best method that came to mind.&lt;/p&gt;
-&lt;p&gt;In the next post I'll most likely talk about git and how I've integrated it with Pelican.&lt;/p&gt;</summary><category term="backup"></category><category term="ftp"></category><category term="archive"></category></entry><entry><title>Lockout: no pass, no key</title><link href="http://fuzz.me.uk/locked-out.html" rel="alternate"></link><updated>2012-01-19T23:52:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-19:locked-out.html</id><summary type="html">&lt;h2&gt;A foreword&lt;/h2&gt;
+&lt;p&gt;In the next post I'll most likely talk about git and how I've integrated it with Pelican.&lt;/p&gt;</summary><category term="backup"></category><category term="ftp"></category><category term="archive"></category></entry><entry><title>Lockout: no pass, no key</title><link href="http://fuzz.me.uk/2012/Jan/19/locked-out/" rel="alternate"></link><updated>2012-01-19T23:52:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-19:2012/Jan/19/locked-out/</id><summary type="html">&lt;h2 id="a-foreword"&gt;A foreword&lt;/h2&gt;
 &lt;p&gt;As you may not know, I'm mostly a Microsoft tech junkie venturing into the wonderful world of Linux. I've visited this land from time to time, but never had the time or motivation to try and settle in, but all this is about to change as one of my New Years resolutions was to get my hands dirty in Linux.&lt;/p&gt;
 &lt;p&gt;Every new beginning is a learning experience, and what better way to learn than from the mistakes made (and the process of trying to fix them)? With this, I bring you my first - and probably not last - embarrassing story.&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;The idea&lt;/h2&gt;
+&lt;h2 id="the-idea"&gt;The idea&lt;/h2&gt;
 &lt;p&gt;The goal was noble: &lt;em&gt;try and make my VPS as secure as possible&lt;/em&gt;. And what better way to achieve this than to disable ssh password authentication, only allowing users to connect with public key authentication?&lt;/p&gt;
 &lt;p&gt;In the end, it was simple! All I had to do was modify &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt; and add&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;PasswordAuthentication no
@@ -117,7 +117,7 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 &lt;script src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
 &lt;hr /&gt;
-&lt;h2&gt;The catalyst&lt;/h2&gt;
+&lt;h2 id="the-catalyst"&gt;The catalyst&lt;/h2&gt;
 &lt;p&gt;Every time I logged in, the working directory was &lt;strong&gt;/root&lt;/strong&gt; (and yes, I know that I shouldn't use root for my day to day business, but hey, that's why I disabled password authentication) and yet all of my work was done in &lt;strong&gt;/home&lt;/strong&gt;. This in turn lead to a very frustrated Fuzz who sought to fix his problem.&lt;/p&gt;
 &lt;p&gt;I mean, it couldn't be that hard to change the login directory, would it? Heck, Linux even gives you a simple way to do it through&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;usermod -d newdir loginname
@@ -132,7 +132,7 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 &lt;p&gt;This meant that I had to search for an alternative: it was changing the directory directly in the &lt;strong&gt;/etc/passwd&lt;/strong&gt; file, and so I did.&lt;/p&gt;
 &lt;p&gt;And things were good!&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;There are no keys to this castle&lt;/h2&gt;
+&lt;h2 id="there-are-no-keys-to-this-castle"&gt;There are no keys to this castle&lt;/h2&gt;
 &lt;p&gt;A short time passes after changing the passwd file and I decide to do a logout and log back in.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Permission&lt;/span&gt; &lt;span class="n"&gt;denied&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;publickey&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -148,12 +148,12 @@ ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;
 
 &lt;p&gt;Fortunately, while bitching on Twitter about the whole situation &lt;a href="http://twitter.com/Kephu"&gt;Keph&lt;/a&gt; reminds me that I still have access to the server... somewhat.&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;IRC bouncer to the rescue!&lt;/h2&gt;
+&lt;h2 id="irc-bouncer-to-the-rescue"&gt;IRC bouncer to the rescue!&lt;/h2&gt;
 &lt;p&gt;One of the purposes of that VPS is to run &lt;a href="http://wiki.znc.in"&gt;ZNC&lt;/a&gt;, an IRC bouncer which has some nice capabilities, one of them being a module called &lt;em&gt;shell&lt;/em&gt; which allow you to type commands into a query as if it were a terminal.&lt;/p&gt;
 &lt;p&gt;"Yay, I am saved!" thought I, without realizing that I had ZNC run under a non-admin account, exactly because of the shell module. The reasoning is that in case someone hacks my IRC password they won't be able to do any damage as, either by loging in the server directly through ssh or via the shell module.&lt;/p&gt;
 &lt;p&gt;On the upside, even though I couldn't do much I could at least write an authorized_keys file for that user and get ssh access to the server; this in turn meant that I could back up a portion of my data in case I had to reinstall the server.&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;Admin panel? What admin panel?&lt;/h2&gt;
+&lt;h2 id="admin-panel-what-admin-panel"&gt;Admin panel? What admin panel?&lt;/h2&gt;
 &lt;p&gt;Of course, people both in IRC and on Twitter told me to see if I can get access to the server via the admin panel provided by the VPS host. Fortunately for me, they did indeed provide such access via a serial console.&lt;/p&gt;
 &lt;p&gt;&lt;img style="float:left; padding-right:10px" src="/images/magic-button.PNG" /&gt;&lt;/p&gt;
 &lt;p&gt;I had seen this magic button and tried it even before embarking on the amazing IRC-hackathon journey, I, in my eternal wisdom, decided to replace the default username in the dialogue that popped up when I pressed it with root, which in turn led me to the same "Permission denied(publickey)" error message.&lt;/p&gt;
