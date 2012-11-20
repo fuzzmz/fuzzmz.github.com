@@ -2,7 +2,6 @@ pelican -s /home/fuzzmz/pelican/qwerty/content/config/pelicanconf.py /home/fuzzm
 git --git-dir=/home/fuzzmz/pelican/qwerty/sources --work-tree=/home/fuzzmz/pelican/qwerty/sources log -1 --pretty=%B > commit.txt
 python /home/fuzzmz/pelican/qwerty/content/config/scripts/replace.py
 chmod +x /home/fuzzmz/pelican/qwerty/content/config/scripts/update.sh
-#rm ./commit.txt
+rm ./commit.txt
 /home/fuzzmz/pelican/qwerty/content/config/scripts/update.sh
-#rm ./update.sh
-
+rm ./update.sh
