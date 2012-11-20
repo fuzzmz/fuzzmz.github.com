@@ -1,0 +1,10 @@
+text_file = open("update.template", "r+w")
+text_file2 = open("update.sh", "w+")
+whole_thing = text_file.read()
+message_file = open("commit.txt", "r")
+message = message_file.readline()
+data = message.split('\n', 1)[0]
+whole_thing2 = whole_thing.replace("REPLACE", data)
+text_file2.write(whole_thing2)
+text_file.close()
+text_file2.close()
