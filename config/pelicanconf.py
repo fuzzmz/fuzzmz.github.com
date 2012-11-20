@@ -22,4 +22,4 @@ DISQUS_SITENAME = "qwertyfuzz"
 FEED_DOMAIN = 'http://fuzz.me.uk'
 GOOGLE_ANALYTICS = "UA-28459915-1"
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = '{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
