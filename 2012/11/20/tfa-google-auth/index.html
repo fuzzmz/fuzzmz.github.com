@@ -96,7 +96,10 @@
 <p>Find the line containing <code>ChallengeResponseAuthentication</code> and set it to yes (also uncomment it if it's commented out) so that it looks like:</p>
 <p><code>ChallengeResponseAuthentication yes</code></p>
 <p>Now all there's left to do is restart the SSH server and to test the change:</p>
-<p><code>sudo /etc/init.d/ssh restart</code></p>
+<div class="codehilite"><pre><span class="p">:::</span> <span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">ssh</span> <span class="n">restart</span>
+</pre></div>
+
+
 <p>The next time you'll log in you should be greeted with a message asking for a verification code after entering the username and password.</p>
 <div class="codehilite"><pre>ssh user@host
 Password:
@@ -106,7 +109,7 @@ Verification code:
 
 <hr />
 <h2>Bonus points</h2>
-<p>One advantage to this is the fact that even if you log in using a certificate (which bypases the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.</p>
+<p>One advantage to this is the fact that even if you log in using a certificate (which bypasses the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.</p>
     </div><!-- /.entry-content -->
     
     <div class="comments">

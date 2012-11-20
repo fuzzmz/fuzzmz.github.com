@@ -24,7 +24,10 @@
 &lt;p&gt;Find the line containing &lt;code&gt;ChallengeResponseAuthentication&lt;/code&gt; and set it to yes (also uncomment it if it's commented out) so that it looks like:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ChallengeResponseAuthentication yes&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Now all there's left to do is restart the SSH server and to test the change:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo /etc/init.d/ssh restart&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;:::&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;The next time you'll log in you should be greeted with a message asking for a verification code after entering the username and password.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;ssh user@host
 Password:
@@ -34,7 +37,7 @@ Verification code:
 
 &lt;hr /&gt;
 &lt;h2&gt;Bonus points&lt;/h2&gt;
-&lt;p&gt;One advantage to this is the fact that even if you log in using a certificate (which bypases the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.&lt;/p&gt;</summary><category term="Debian"></category><category term="Google"></category><category term="security"></category><category term="TFA"></category><category term="T-FA"></category><category term="2FA"></category></entry><entry><title>Git revert to commit</title><link href="http://fuzz.me.uk/2012/11/19/git-revert-specific/" rel="alternate"></link><updated>2012-11-19T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-19:2012/11/19/git-revert-specific/</id><summary type="html">&lt;p&gt;Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:&lt;/p&gt;
+&lt;p&gt;One advantage to this is the fact that even if you log in using a certificate (which bypasses the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.&lt;/p&gt;</summary><category term="Debian"></category><category term="Google"></category><category term="security"></category><category term="TFA"></category><category term="T-FA"></category><category term="2FA"></category></entry><entry><title>Git revert to commit</title><link href="http://fuzz.me.uk/2012/11/19/git-revert-specific/" rel="alternate"></link><updated>2012-11-19T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-19:2012/11/19/git-revert-specific/</id><summary type="html">&lt;p&gt;Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;soft&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt;&lt;span class="p"&gt;@{&lt;/span&gt;1&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Revert&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;&amp;quot;

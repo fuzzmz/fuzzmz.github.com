@@ -24,7 +24,10 @@
 &lt;p&gt;Find the line containing &lt;code&gt;ChallengeResponseAuthentication&lt;/code&gt; and set it to yes (also uncomment it if it's commented out) so that it looks like:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ChallengeResponseAuthentication yes&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Now all there's left to do is restart the SSH server and to test the change:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo /etc/init.d/ssh restart&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;:::&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;The next time you'll log in you should be greeted with a message asking for a verification code after entering the username and password.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;ssh user@host
 Password:
@@ -34,7 +37,7 @@ Verification code:
 
 &lt;hr /&gt;
 &lt;h2&gt;Bonus points&lt;/h2&gt;
-&lt;p&gt;One advantage to this is the fact that even if you log in using a certificate (which bypases the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.&lt;/p&gt;</summary><category term="Debian"></category><category term="Google"></category><category term="security"></category><category term="TFA"></category><category term="T-FA"></category><category term="2FA"></category></entry><entry><title>Up, up, backup!</title><link href="http://fuzz.me.uk/2012/01/20/backups/" rel="alternate"></link><updated>2012-01-20T03:38:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-20:2012/01/20/backups/</id><summary type="html">&lt;p&gt;As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.&lt;/p&gt;
+&lt;p&gt;One advantage to this is the fact that even if you log in using a certificate (which bypasses the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.&lt;/p&gt;</summary><category term="Debian"></category><category term="Google"></category><category term="security"></category><category term="TFA"></category><category term="T-FA"></category><category term="2FA"></category></entry><entry><title>Up, up, backup!</title><link href="http://fuzz.me.uk/2012/01/20/backups/" rel="alternate"></link><updated>2012-01-20T03:38:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-20:2012/01/20/backups/</id><summary type="html">&lt;p&gt;As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.&lt;/p&gt;
 &lt;p&gt;In short, my backup needs are simple:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Archive the important data:&lt;ul&gt;
