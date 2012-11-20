@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>QWERTY - fast keystrokes - d'oh</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
+        
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie.css"/>
+                <script src=".././js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
+<script type="text/javascript" src="./static/js/prototype.js"></script>
+<script type="text/javascript" src="./static/js/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="./static/js/lightbox.js"></script>
+<link rel="stylesheet" href="./static/js/lightbox.css" type="text/css" media="screen" />
+</head>
+
+<body id="index" class="home">
+
+        <header id="banner" class="body">
+                <h1><a href="../.">QWERTY - fast keystrokes </a></h1>
+                <nav><ul>
+                
+                
+                
+                
+                
+                    <li ><a href=".././category/code.html">code</a></li>
+                
+                    <li ><a href=".././category/linux.html">linux</a></li>
+                
+                    <li ><a href=".././category/rand.html">rand</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+                
+
+            
+
+        
+        
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href=".././2012/01/19/locked-out/">Lockout: no pass, no key</a></h1> 
+                    <footer class="post-info">
+        <abbr class="published" title="2012-01-19T23:52:00">
+                Thu 19 January 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
+        </address>
+        
+<p>In <a href=".././category/linux.html">linux</a>. </p>
+<p>tags: <a href=".././tag/linux.html">Linux</a><a href=".././tag/doh.html">d'oh</a></p>
+
+
+</footer><!-- /.post-info --><h2>A foreword</h2>
+<p>As you may not know, I'm mostly a Microsoft tech junkie venturing into the wonderful world of Linux. I've visited this land from time to time, but never had the time or motivation to try and settle in, but all this is about to change as one of my New Years resolutions was to get my hands dirty in Linux.</p>
+<p>Every new beginning is a learning experience, and what better way to learn than from the mistakes made (and the process of trying to fix them)? With this, I bring you my first - and probably not last - embarrassing story.</p>
+<hr />
+<h2>The idea</h2>
+<p>The goal was noble: <em>try and make my VPS as secure as possible</em>. And what better way to achieve this than to disable ssh password authentication, only allowing users to connect with public key authentication?</p>
+<p>In the end, it was simple! All I had to do was modify <strong>/etc/ssh/sshd_config</strong> and add</p>
+<div class="codehilite"><pre>PasswordAuthentication no
+</pre></div>
+
+
+<p>After a restart of the ssh server all was good in the world.</p>
+<p>Heck, I was so happy that I managed to get everything running that I even made an excited tweet that would prove to be a bit too prescient for my taste.</p>
+<p align="center"><blockquote class="twitter-tweet"><p>Finally managed to get git to behave. I feel so victorious I'd reinstall the server just to do it again. Which reminds me, need backups.</p>&mdash; Serban Constantin (@fuzzmz) <a href="https://twitter.com/fuzzmz/status/159357579846365185" data-datetime="2012-01-17T19:33:00+00:00">January17, 2012</a></blockquote></p>
+
+<script src="../static/platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<hr />
+<h2>The catalyst</h2>
+<p>Every time I logged in, the working directory was <strong>/root</strong> (and yes, I know that I shouldn't use root for my day to day business, but hey, that's why I disabled password authentication) and yet all of my work was done in <strong>/home</strong>. This in turn lead to a very frustrated Fuzz who sought to fix his problem.</p>
+<p>I mean, it couldn't be that hard to change the login directory, would it? Heck, Linux even gives you a simple way to do it through</p>
+<div class="codehilite"><pre><span class="nv">$ </span>usermod -d newdir loginname
+</pre></div>
+
+
+<p>So all I had to do was to run <em>usermod -d /home root</em> and I'd be set. Little did I know that:</p>
+<ul>
+<li>there is an additional parameter, <em>-m</em> which moves the contents of the old dir to the new one (*cough* *cough*);</li>
+<li>you can't run the command for the user you're currently logged in with.</li>
+</ul>
+<p>This meant that I had to search for an alternative: it was changing the directory directly in the <strong>/etc/passwd</strong> file, and so I did.</p>
+<p>And things were good!</p>
+<hr />
+<h2>There are no keys to this castle</h2>
+<p>A short time passes after changing the passwd file and I decide to do a logout and log back in.</p>
+<div class="codehilite"><pre><span class="n">Permission</span> <span class="n">denied</span> <span class="p">(</span><span class="n">publickey</span><span class="p">).</span>
+</pre></div>
+
+
+<p>OK, this isn't good, this isn't good at all!</p>
+<p>Remember that -m I told you about? Yeah, the one that moves the contents of the old login directory to the new one; well, one of the things it moves is the <strong>.ssh</strong> folder which contains the authorized_keys file.</p>
+<p>What's so special about that file? Well, it holds the list of rsa keys which are allowed to access the server. Think of them as the keys that open your house door in the absence of people inside (the password, which I disabled) to open the door for you.</p>
+<p>In short:</p>
+<p align="center"><blockquote class="twitter-tweet"><p>Just as I got everything running the way I wanted I managed to lock myself out of the server. Fucking piece of shit!</p>&mdash; Serban Constantin (@fuzzmz) <a href="https://twitter.com/fuzzmz/status/159371687379484675" data-datetime="2012-01-17T20:29:00+00:00">January17, 2012</a></blockquote></p>
+
+<script src="../static/platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Fortunately, while bitching on Twitter about the whole situation <a href="http://twitter.com/Kephu">Keph</a> reminds me that I still have access to the server... somewhat.</p>
+<hr />
+<h2>IRC bouncer to the rescue!</h2>
+<p>One of the purposes of that VPS is to run <a href="http://wiki.znc.in">ZNC</a>, an IRC bouncer which has some nice capabilities, one of them being a module called <em>shell</em> which allow you to type commands into a query as if it were a terminal.</p>
+<p>"Yay, I am saved!" thought I, without realizing that I had ZNC run under a non-admin account, exactly because of the shell module. The reasoning is that in case someone hacks my IRC password they won't be able to do any damage as, either by loging in the server directly through ssh or via the shell module.</p>
+<p>On the upside, even though I couldn't do much I could at least write an authorized_keys file for that user and get ssh access to the server; this in turn meant that I could back up a portion of my data in case I had to reinstall the server.</p>
+<hr />
+<h2>Admin panel? What admin panel?</h2>
+<p>Of course, people both in IRC and on Twitter told me to see if I can get access to the server via the admin panel provided by the VPS host. Fortunately for me, they did indeed provide such access via a serial console.</p>
+<p><img style="float:left; padding-right:10px" src="../static/images/magic-button.PNG" /></p>
+<p>I had seen this magic button and tried it even before embarking on the amazing IRC-hackathon journey, I, in my eternal wisdom, decided to replace the default username in the dialogue that popped up when I pressed it with root, which in turn led me to the same "Permission denied(publickey)" error message.</p>
+<p>This time though, this time it would be different! This time I would leave the default username and gaze upon the wonders of</p>
+<div class="codehilite"><pre>root@qwerty:~#
+</pre></div>
+
+
+<p>Yes, I was in and victorious!</p>
+<p>I quickly created a .ssh/authorized_keys file under my new login directory and started working on my backup strategy.</p>
+<p>But about that, in the next blog update.</p><p>There are <a href=".././2012/01/19/locked-out/#disqus_thread">comments</a>.</p>
+                </article>
+                
+                    
+<p class="paginator">
+    
+    Page 1 / 1
+    
+</p>
+
+                
+            </aside><!-- /#featured -->
+            
+        
+        
+        
+            </ol><!-- /#posts-list -->
+            
+            </section><!-- /#content -->
+        
+    
+
+
+        <section id="extras" class="body">
+        
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28459915-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'qwertyfuzz';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>
