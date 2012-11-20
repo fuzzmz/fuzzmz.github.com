@@ -22,19 +22,19 @@ I'm running Debian so this guide applies to Debian and Debian-based distribution
 
 First of all we're going to need to install the build-essential package which will allow us to actually install the software.
 
-```sudo apt-get install build-essential```
+	sudo apt-get install build-essential
 
 After we've got them installed we're going to install some dependencies needed for the PAM module to work (libpam-dev) as well as to retrieve (git) and easily configure the software (libqrencode-dev).
 
-```sudo apt-get install git libpam-dev libqrencode-dev libpam0g-dev```
+	sudo apt-get install git libpam-dev libqrencode-dev libpam0g-dev
 
 Now let's go ahead and download the code:
 
-```git clone https://code.google.com/p/google-authenticator/```
+	git clone https://code.google.com/p/google-authenticator/
 
 This grabs the files from Google's server and creates a local copy. After that's done navigate to the google-authenticator/libpam directory and run
 
-```sudo make install```
+	sudo make install
 
 Now that we've got everything installed it's time to actually set up the application. This is extremely easy, just run ```google-authenticator``` which will generate a QR code (thanks to the libqrencode-dev package); scan this code in the Google Authenticator mobile app (or enter the information by hand) and head back to your PC to finish setting up the software by answering the questions it asks.
 
@@ -45,19 +45,19 @@ Setting up the OS to use Challenge Response Authentication
 
 Once the previous step is done we need to let the OS know that is has to use the newly installed PAM module. To do this we need to edit the ```/etc/pam.d/common-auth``` (by running ```sudo vim /etc/pam.d/common-auth``` for example) and adding the following line:
 
-```auth    required                        pam_google_authenticator.so```
+	auth    required                        pam_google_authenticator.so
 
 Next up is the ssh_config file in order to allow SSH to send challenge requests:
 
-```sudo vim /etc/ssh/sshd_config```
+	sudo vim /etc/ssh/sshd_config
 
 Find the line containing ```ChallengeResponseAuthentication``` and set it to yes (also uncomment it if it's commented out) so that it looks like:
 
-```ChallengeResponseAuthentication yes```
+	ChallengeResponseAuthentication yes
 
 Now all there's left to do is restart the SSH server and to test the change:
 
-	::: sudo /etc/init.d/ssh restart
+	sudo /etc/init.d/ssh restart
 
 The next time you'll log in you should be greeted with a message asking for a verification code after entering the username and password.
 
