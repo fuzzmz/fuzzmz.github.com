@@ -5,8 +5,6 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../../../.././theme/css/main.css" type="text/css" />
         
-        <link href="http://fuzz.me.uk/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="QWERTY - fast keystrokes Atom Feed" />
-        
         
 
         <!--[if IE]>
@@ -73,11 +71,11 @@
 
 
 </footer><!-- /.post-info -->
-      <h2 id="a-foreword">A foreword</h2>
+      <h2>A foreword</h2>
 <p>As you may not know, I'm mostly a Microsoft tech junkie venturing into the wonderful world of Linux. I've visited this land from time to time, but never had the time or motivation to try and settle in, but all this is about to change as one of my New Years resolutions was to get my hands dirty in Linux.</p>
 <p>Every new beginning is a learning experience, and what better way to learn than from the mistakes made (and the process of trying to fix them)? With this, I bring you my first - and probably not last - embarrassing story.</p>
 <hr />
-<h2 id="the-idea">The idea</h2>
+<h2>The idea</h2>
 <p>The goal was noble: <em>try and make my VPS as secure as possible</em>. And what better way to achieve this than to disable ssh password authentication, only allowing users to connect with public key authentication?</p>
 <p>In the end, it was simple! All I had to do was modify <strong>/etc/ssh/sshd_config</strong> and add</p>
 <div class="codehilite"><pre>PasswordAuthentication no
@@ -91,7 +89,7 @@
 <script src="../../../../static/platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <hr />
-<h2 id="the-catalyst">The catalyst</h2>
+<h2>The catalyst</h2>
 <p>Every time I logged in, the working directory was <strong>/root</strong> (and yes, I know that I shouldn't use root for my day to day business, but hey, that's why I disabled password authentication) and yet all of my work was done in <strong>/home</strong>. This in turn lead to a very frustrated Fuzz who sought to fix his problem.</p>
 <p>I mean, it couldn't be that hard to change the login directory, would it? Heck, Linux even gives you a simple way to do it through</p>
 <div class="codehilite"><pre><span class="nv">$ </span>usermod -d newdir loginname
@@ -106,7 +104,7 @@
 <p>This meant that I had to search for an alternative: it was changing the directory directly in the <strong>/etc/passwd</strong> file, and so I did.</p>
 <p>And things were good!</p>
 <hr />
-<h2 id="there-are-no-keys-to-this-castle">There are no keys to this castle</h2>
+<h2>There are no keys to this castle</h2>
 <p>A short time passes after changing the passwd file and I decide to do a logout and log back in.</p>
 <div class="codehilite"><pre><span class="n">Permission</span> <span class="n">denied</span> <span class="p">(</span><span class="n">publickey</span><span class="p">).</span>
 </pre></div>
@@ -122,12 +120,12 @@
 
 <p>Fortunately, while bitching on Twitter about the whole situation <a href="http://twitter.com/Kephu">Keph</a> reminds me that I still have access to the server... somewhat.</p>
 <hr />
-<h2 id="irc-bouncer-to-the-rescue">IRC bouncer to the rescue!</h2>
+<h2>IRC bouncer to the rescue!</h2>
 <p>One of the purposes of that VPS is to run <a href="http://wiki.znc.in">ZNC</a>, an IRC bouncer which has some nice capabilities, one of them being a module called <em>shell</em> which allow you to type commands into a query as if it were a terminal.</p>
 <p>"Yay, I am saved!" thought I, without realizing that I had ZNC run under a non-admin account, exactly because of the shell module. The reasoning is that in case someone hacks my IRC password they won't be able to do any damage as, either by loging in the server directly through ssh or via the shell module.</p>
 <p>On the upside, even though I couldn't do much I could at least write an authorized_keys file for that user and get ssh access to the server; this in turn meant that I could back up a portion of my data in case I had to reinstall the server.</p>
 <hr />
-<h2 id="admin-panel-what-admin-panel">Admin panel? What admin panel?</h2>
+<h2>Admin panel? What admin panel?</h2>
 <p>Of course, people both in IRC and on Twitter told me to see if I can get access to the server via the admin panel provided by the VPS host. Fortunately for me, they did indeed provide such access via a serial console.</p>
 <p><img style="float:left; padding-right:10px" src="../../../../static/images/magic-button.PNG" /></p>
 <p>I had seen this magic button and tried it even before embarking on the amazing IRC-hackathon journey, I, in my eternal wisdom, decided to replace the default username in the dialogue that popped up when I pressed it with root, which in turn led me to the same "Permission denied(publickey)" error message.</p>
