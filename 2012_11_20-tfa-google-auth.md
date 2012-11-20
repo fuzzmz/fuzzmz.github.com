@@ -7,7 +7,7 @@ Slug: tfa-google-auth
 The reason
 ----------
 
-As you may remember I've went through [a bit of an ordeal](./2012/01/19/locked-out/) trying to secure my server by allowing users to log in only with certificates. This had the advantage of being more secure than a password but, as time went on, the big disadvantage of not being able to log in from PCs which lacked the certs.
+As you may remember I've went through [a bit of an ordeal](http://fuzz.me.uk/2012/01/19/locked-out/) trying to secure my server by allowing users to log in only with certificates. This had the advantage of being more secure than a password but, as time went on, the big disadvantage of not being able to log in from PCs which lacked the certs.
 
 Moving forward (and doing a fresh install on the VPS, which I'll address in a future post) I've went back on my decision to only allow certificate based logins. The downside to this change is that I felt the the server was still exposed despite using a strong password.
 
