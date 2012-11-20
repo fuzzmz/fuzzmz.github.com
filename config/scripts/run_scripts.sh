@@ -5,3 +5,5 @@ chmod +x /home/fuzzmz/pelican/qwerty/content/config/scripts/update.sh
 rm ./commit.txt
 /home/fuzzmz/pelican/qwerty/content/config/scripts/update.sh
 rm ./update.sh
+cd /home/fuzzmz/pelican/qwerty/sources
+git --git-dir=/home/fuzzmz/pelican/qwerty/sources --work-tree=/home/fuzzmz/pelican/qwerty/content push github master:sources
