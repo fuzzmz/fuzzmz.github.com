@@ -11,4 +11,5 @@
 <p>In <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>{% endif %}</p>
 {% include 'taglist.html' %}
 {% include 'translations.html' %}
+<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/{{ article.url[:4] }}-{{ article.url[5:7] }}-{{ article.url[8:10] }}-{{ article.slug }}.md">article source</a></p>
 </footer><!-- /.post-info -->
