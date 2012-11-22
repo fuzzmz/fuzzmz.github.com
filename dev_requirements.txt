@@ -1,0 +1,8 @@
+# Tests
+unittest2
+mock
+# Optional Packages
+Markdown
+BeautifulSoup
+typogrify
+webassets
