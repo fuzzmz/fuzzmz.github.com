@@ -13,7 +13,7 @@ DEFAULT_LANG = u'en'
 DEFAULT_PAGINATION = 5
 
 # old stuff
-FEED_ATOM = ('qwertyfuzz/main')
+FEED_ALL_ATOM = ('qwertyfuzz/main')
 DEFAULT_CATEGORY = ('rand')
 MARKUP = ('rst', 'md')
 CATEGORY_FEED_ATOM = 'qwertyfuzz/%s'
