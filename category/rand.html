@@ -52,8 +52,91 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././2012/11/19/git-revert-specific/">Git revert to commit</a></h1> 
+                    <h1 class="entry-title"><a href=".././2012/11/26/atom-feeds/">Atom feeds</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-11-26T00:00:00">
+                Mon 26 November 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
+        </address>
+        
+<p>In <a href=".././category/rand.html">rand</a>. </p>
+<p>tags: <a href=".././tag/feeds.html">feeds</a><a href=".././tag/atom.html">Atom</a><a href=".././tag/feedburner.html">FeedBurner</a></p>
+
+
+<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-11-26-atom-feeds.md">article source</a></p>
+</footer><!-- /.post-info --><p>Feeds are now available for this website in case you want to keep up to date using a feed reader such as <a href="http://reader.google.com">Google Reader</a>. The general feed can be found at <a href="http://feeds.feedburner.com/qwertyfuzz/main">http://feeds.feedburner.com/qwertyfuzz/main</a> in case your browser doesn't display any feed availability notifier in its interface.</p>
+<p>Currently the per category feeds aren't properly working (see <a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/7">issue #7 - fix feeds for categories</a>) but I hope to get them up and running as soon as possible.</p>
+<p>The associated GitHub issues regarding generating feeds are:</p>
+<ol>
+<li><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/4">issue #4 - Serve feeds through FeedBurner</a></li>
+<li><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/5">issue #5 - Change feed location for Feedburner transition</a></li>
+<li><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/6">issue #6 - Feed not enabled in html header</a></li>
+</ol><p>There are <a href=".././2012/11/26/atom-feeds/#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././2012/11/26/view-source/" rel="bookmark"
+                           title="Permalink to View article source">View article source</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-11-26T00:00:00">
+                Mon 26 November 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
+        </address>
+        
+<p>In <a href=".././category/rand.html">rand</a>. </p>
+<p>tags: <a href=".././tag/pelican.html">Pelican</a><a href=".././tag/github.html">GitHub</a><a href=".././tag/markdown.html">Markdown</a></p>
+
+
+<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-11-26-view-source.md">article source</a></p>
+</footer><!-- /.post-info -->
+                <p>You can now view the article markdown source by clicking on the <strong>view: article source</strong> in the article info pane, just beneath the associated tags list.</p>
+<p>If you're curious about the changes made in the backend for this to function you can always take a look at the <em><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/1">Add ...</a></em></p>
+                <a class="readmore" href=".././2012/11/26/view-source/">read more</a>
+                <p>There are <a href=".././2012/11/26/view-source/#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././2012/11/19/git-revert-specific/" rel="bookmark"
+                           title="Permalink to Git revert to commit">Git revert to commit</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-11-19T00:00:00">
                 Mon 19 November 2012
         </abbr>
@@ -68,32 +151,14 @@
 
 
 <p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-11-19-git-revert-specific.md">article source</a></p>
-</footer><!-- /.post-info --><p>Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:</p>
+</footer><!-- /.post-info -->
+                <p>Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:</p>
 <div class="codehilite"><pre><span class="n">git</span> <span class="n">reset</span> 56<span class="n">e05fced</span>
-<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">soft</span> <span class="n">HEAD</span><span class="p">@{</span>1<span class="p">}</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> &quot;<span class="n">Revert</span> <span class="n">to</span> 56<span class="n">e05fced</span>&quot;
-<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span>
-</pre></div>
-
-
-<p>Just replace 56e05fced with the commit code you want to revert to.</p>
-<ol>
-<li>The first line resets the index to a former commit (56e05fced in this case).</li>
-<li>The second line moves the pointer back to the previous head.</li>
-<li>Third line is self explanatory (commits the changes with a message).</li>
-<li>Last tine updates the working copy to reflect the new commit</li>
-</ol>
-<p>Then all you have to do is push the changes with a <code>git push origin master</code> or whatever your branch may be.</p><p>There are <a href=".././2012/11/19/git-revert-specific/#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+<span class="n">git ...</span></pre></div>
+                <a class="readmore" href=".././2012/11/19/git-revert-specific/">read more</a>
+                <p>There are <a href=".././2012/11/19/git-revert-specific/#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
             
@@ -162,78 +227,6 @@
                 <p>I thought the movie was good, great even if you haven't watched any of the trailers. Michael Fassbender played a perfect evil android, from the stiff posture to the robotic reactions to things around him. I wasn't exactly sold on Noomi's character but she did a great ...</p>
                 <a class="readmore" href=".././2012/06/13/prometheus/">read more</a>
                 <p>There are <a href=".././2012/06/13/prometheus/#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                    <h1><a href=".././2012/05/13/last-fm-scrobbler-beta/" rel="bookmark"
-                           title="Permalink to Quick & dirty with the Last.fm beta">Quick & dirty with the Last.fm beta</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-05-13T00:00:00">
-                Sun 13 May 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
-        </address>
-        
-<p>In <a href=".././category/rand.html">rand</a>. </p>
-<p>tags: <a href=".././tag/lastfm.html">Last.fm</a><a href=".././tag/audioscrobbler.html">audioscrobbler</a><a href=".././tag/beta.html">beta</a></p>
-
-
-<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-05-13-last-fm-scrobbler-beta.md">article source</a></p>
-</footer><!-- /.post-info -->
-                <p><img style="float:left; padding-right:10px" src="../static/images/lastfm.PNG" /></p>
-<p>Last.fm released a <a href="http://www.last.fm/group/Audioscrobbler+Beta">beta version</a> of their audioscrobbler, the software that sits on your PC and lets you stream their radio as well as sends the plays to their web interface.</p>
-<p>Now, I'm a pretty big user of the old client, mostly because I disliked listening to the ...</p>
-                <a class="readmore" href=".././2012/05/13/last-fm-scrobbler-beta/">read more</a>
-                <p>There are <a href=".././2012/05/13/last-fm-scrobbler-beta/#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                    <h1><a href=".././2012/05/07/my-linux-on-desktop/" rel="bookmark"
-                           title="Permalink to My Linux on the Desktop">My Linux on the Desktop</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-05-07T00:00:00">
-                Mon 07 May 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
-        </address>
-        
-<p>In <a href=".././category/rand.html">rand</a>. </p>
-<p>tags: <a href=".././tag/linux.html">linux</a><a href=".././tag/pc.html">PC</a><a href=".././tag/desktop.html">desktop</a><a href=".././tag/virtualization.html">virtualization</a></p>
-
-
-<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-05-07-my-linux-on-desktop.md">article source</a></p>
-</footer><!-- /.post-info -->
-                <p>As some of you know I'm a big Microsoft fanboy as 90% of what I do is based around MS tech (be it C#, .NET, SQL Server and so on); with this in mind I always find myself amused by the eternal "next year will be the year of ...</p>
-                <a class="readmore" href=".././2012/05/07/my-linux-on-desktop/">read more</a>
-                <p>There are <a href=".././2012/05/07/my-linux-on-desktop/#disqus_thread">comments</a>.</p>
                 </div><!-- /.entry-content -->
             </article></li>
         

@@ -52,91 +52,8 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././2012/11/26/atom-feeds/">Atom feeds</a></h1> 
+                    <h1 class="entry-title"><a href=".././2012/11/22/this-blog/">How it's made</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-11-26T00:00:00">
-                Mon 26 November 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
-        </address>
-        
-<p>In <a href=".././category/random.html">random</a>. </p>
-<p>tags: <a href=".././tag/feeds.html">feeds</a><a href=".././tag/atom.html">Atom</a><a href=".././tag/feedburner.html">FeedBurner</a></p>
-
-
-<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-11-26-atom-feeds.md">article source</a></p>
-</footer><!-- /.post-info --><p>Feeds are now available for this website in case you want to keep up to date using a feed reader such as <a href="http://reader.google.com">Google Reader</a>. The general feed can be found at <a href="http://feeds.feedburner.com/qwertyfuzz/main">http://feeds.feedburner.com/qwertyfuzz/main</a> in case your browser doesn't display any feed availability notifier in its interface.</p>
-<p>Currently the per category feeds aren't properly working (see <a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/7">issue #7 - fix feeds for categories</a>) but I hope to get them up and running as soon as possible.</p>
-<p>The associated GitHub issues regarding generating feeds are:</p>
-<ol>
-<li><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/4">issue #4 - Serve feeds through FeedBurner</a></li>
-<li><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/5">issue #5 - Change feed location for Feedburner transition</a></li>
-<li><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/6">issue #6 - Feed not enabled in html header</a></li>
-</ol><p>There are <a href=".././2012/11/26/atom-feeds/#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
-        
-        
-            
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                    <h1><a href=".././2012/11/26/view-source/" rel="bookmark"
-                           title="Permalink to View article source">View article source</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-11-26T00:00:00">
-                Mon 26 November 2012
-        </abbr>
-
-        
-        <address class="vcard author">
-                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
-        </address>
-        
-<p>In <a href=".././category/random.html">random</a>. </p>
-<p>tags: <a href=".././tag/pelican.html">Pelican</a><a href=".././tag/github.html">GitHub</a><a href=".././tag/markdown.html">Markdown</a></p>
-
-
-<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-11-26-view-source.md">article source</a></p>
-</footer><!-- /.post-info -->
-                <p>You can now view the article markdown source by clicking on the <strong>view: article source</strong> in the article info pane, just beneath the associated tags list.</p>
-<p>If you're curious about the changes made in the backend for this to function you can always take a look at the <em><a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/1">Add ...</a></em></p>
-                <a class="readmore" href=".././2012/11/26/view-source/">read more</a>
-                <p>There are <a href=".././2012/11/26/view-source/#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            
-
-        
-         
-            
-            <li><article class="hentry">    
-                <header>
-                    <h1><a href=".././2012/11/22/this-blog/" rel="bookmark"
-                           title="Permalink to How it's made">How it's made</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
         <abbr class="published" title="2012-11-22T00:00:00">
                 Thu 22 November 2012
         </abbr>
@@ -151,23 +68,43 @@
 
 
 <p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-11-22-this-blog.md">article source</a></p>
-</footer><!-- /.post-info -->
-                <p>I kept wanting to write an article about the tech behind this blog for a while, and I even addressed it a bit in the <a href="http://fuzz.me.uk/2012/02/21/github-hosting/">GitHub Pages - free website hosting</a> article, but now it's time to do a proper write-up of what's going on behind the scenes of ...</p>
-                <a class="readmore" href=".././2012/11/22/this-blog/">read more</a>
-                <p>There are <a href=".././2012/11/22/this-blog/#disqus_thread">comments</a>.</p>
-                </div><!-- /.entry-content -->
-            </article></li>
-        
-        
-            </ol><!-- /#posts-list -->
-            
+</footer><!-- /.post-info --><p>I kept wanting to write an article about the tech behind this blog for a while, and I even addressed it a bit in the <a href="http://fuzz.me.uk/2012/02/21/github-hosting/">GitHub Pages - free website hosting</a> article, but now it's time to do a proper write-up of what's going on behind the scenes of this blog.</p>
+<hr />
+<h2>The software</h2>
+<p>As you can see in the footer, this blog is built using <a href="http://getpelican.com/">Pelican</a>, a blogging engine written in Python. The gist of it is that it takes an article written in Markdown or reStructuredText, runs its magic on it and in the end outputs a properly formated and themed html file.</p>
+<p>This whole process has the advantage of allowing you to focus on the writing and ignoring all the distractions found in more full-fledged CMS systems such as Wordpress, where I used to spend more time tweaking settings and plugins than I did writing.</p>
+<p>One disadvantage though is that it can be a bit harder to learn how to use at first compared to a WYSIWYG interface, but after you get your config up and running and get a hang of the Markdown syntax (which I recommend over RST) things will be extremely fast.</p>
+<p>Speaking of Markdown, you'll also need a text editor. While you can do this in Notepad or any other simple text editor, I'm partial of <a href="http://www.sublimetext.com/">Sublime Text 2</a>. The reason why I chose it is because it not only offers syntax coloring but also advanced editing functions such as multi-row edits, the ability to show diffs and also plugins. Through these plugins you can integrate it with git so that you can basically never leave your editor from starting writing the article and up to the point it goes live on your website.</p>
+<p>The last part of the trifecta is <a href="http://git-scm.com/">git</a>, a source code management system that ties in nicely with <a href="http://github.com/">GitHub</a>, the place where the website is actually stored.</p>
+<p>I honestly recommend using git (or any sort of SCM) even if you're not working with code. Text can be versioned so that you can always go back to a previous version and have a history of edits for example. As a programmer it's just common sense to have a SCM of choice and all code versioned.</p>
+<hr />
+<h2>The flow</h2>
+<p>Now it's time to tell you how all of these pieces of technology come together to create the website you're browsing right now.</p>
+<p>The flow can be broken down in 4 big parts:</p>
+<ol>
+<li>Writing the article;</li>
+<li>Committing &amp; pushing the post;</li>
+<li>Pelican magic;</li>
+<li>Publishing the output.</li>
+</ol>
+<p>These 4 steps take place on a total of 3 systems, my own PC, my VPS and the GitHub servers. Step 1 is the only one which is self-reliant, not being dependent on any other of the machines.</p>
+<p>Once I finish writing the article I then commit the changes and push them to a remote repository that resides on my VPS. </p><p>There are <a href=".././2012/11/22/this-blog/#disqus_thread">comments</a>.</p>
+                </article>
                 
+                    
 <p class="paginator">
     
     Page 1 / 1
     
 </p>
 
+                
+            </aside><!-- /#featured -->
+            
+        
+        
+        
+            </ol><!-- /#posts-list -->
             
             </section><!-- /#content -->
         
