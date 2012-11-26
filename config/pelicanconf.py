@@ -13,10 +13,10 @@ DEFAULT_LANG = u'en'
 DEFAULT_PAGINATION = 5
 
 # old stuff
-FEED_ATOM = ('feeds/all.atom.xml')
+FEED_ATOM = ('qwertyfuzz/main.xml')
 DEFAULT_CATEGORY = ('rand')
 MARKUP = ('rst', 'md')
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+CATEGORY_FEED_ATOM = 'qwertyfuzz/%s.main.xml'
 TWITTER_USERNAME = 'fuzzmz'
 DISQUS_SITENAME = "qwertyfuzz"
 FEED_DOMAIN = 'http://fuzz.me.uk'
