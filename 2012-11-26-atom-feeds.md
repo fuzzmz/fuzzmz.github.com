@@ -1,7 +1,7 @@
 Date: 2012-11-26
 Title: Atom feeds
 Tags: feeds, Atom, FeedBurner
-Category: random
+Category: rand
 Slug: atom-feeds
 
 Feeds are now available for this website in case you want to keep up to date using a feed reader such as [Google Reader](http://reader.google.com). The general feed can be found at [http://feeds.feedburner.com/qwertyfuzz/main](http://feeds.feedburner.com/qwertyfuzz/main) in case your browser doesn't display any feed availability notifier in its interface.
