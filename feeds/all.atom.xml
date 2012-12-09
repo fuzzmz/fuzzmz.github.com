@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>QWERTY - fast keystrokes</title><link href="http://fuzz.me.uk/" rel="alternate"></link><link href="http://feeds.feedburner.com/qwertyfuzz/rand" rel="self"></link><id>http://fuzz.me.uk/</id><updated>2012-11-26T00:00:00+02:00</updated><entry><title>Atom feeds</title><link href="http://fuzz.me.uk/2012/11/26/atom-feeds/" rel="alternate"></link><updated>2012-11-26T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-26:2012/11/26/atom-feeds/</id><summary type="html">&lt;p&gt;Feeds are now available for this website in case you want to keep up to date using a feed reader such as &lt;a href="http://reader.google.com"&gt;Google Reader&lt;/a&gt;. The general feed can be found at &lt;a href="http://feeds.feedburner.com/qwertyfuzz/main"&gt;http://feeds.feedburner.com/qwertyfuzz/main&lt;/a&gt; in case your browser doesn't display any feed availability notifier in its interface.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>QWERTY - fast keystrokes</title><link href="http://fuzz.me.uk/" rel="alternate"></link><link href="http://feeds.feedburner.com/feeds/all.atom.xml" rel="self"></link><id>http://fuzz.me.uk/</id><updated>2012-12-09T00:00:00+02:00</updated><entry><title>Fast filename replace</title><link href="http://fuzz.me.uk/2012/12/09/filename-replace/" rel="alternate"></link><updated>2012-12-09T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-12-09:2012/12/09/filename-replace/</id><summary type="html">&lt;p&gt;This is a short article for a short PowerShell command.&lt;/p&gt;
+&lt;p&gt;Have you ever had a folder filled with files wheree you wanted to replace all spaces in the file names with dashes for example? If yes, then this script will work wonders for you.&lt;/p&gt;
+&lt;p&gt;:::powershell
+   get-childitem *.mp3 | foreach { rename-item $&lt;em&gt; $&lt;/em&gt;.Name.Replace(" ", "_") }&lt;/p&gt;
+&lt;p&gt;That command replaces all spaces with underscores in all mp3 files in the folder it's run. The syntax is pretty explicit, &lt;code&gt;get-childitem&lt;/code&gt; tells powershell to get all the contents of the folder with the extension specified (in our case it's &lt;code&gt;*.mp3&lt;/code&gt;) and makes a loop over all elements (&lt;code&gt;foreach&lt;/code&gt;) where it replaces all spaces with underscores for each item found with that extension.&lt;/p&gt;</summary><category term="PowerShell"></category><category term="scripting"></category></entry><entry><title>Atom feeds</title><link href="http://fuzz.me.uk/2012/11/26/atom-feeds/" rel="alternate"></link><updated>2012-11-26T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-26:2012/11/26/atom-feeds/</id><summary type="html">&lt;p&gt;Feeds are now available for this website in case you want to keep up to date using a feed reader such as &lt;a href="http://reader.google.com"&gt;Google Reader&lt;/a&gt;. The general feed can be found at &lt;a href="http://feeds.feedburner.com/qwertyfuzz/main"&gt;http://feeds.feedburner.com/qwertyfuzz/main&lt;/a&gt; in case your browser doesn't display any feed availability notifier in its interface.&lt;/p&gt;
 &lt;p&gt;Currently the per category feeds aren't properly working (see &lt;a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/7"&gt;issue #7 - fix feeds for categories&lt;/a&gt;) but I hope to get them up and running as soon as possible.&lt;/p&gt;
 &lt;p&gt;The associated GitHub issues regarding generating feeds are:&lt;/p&gt;
 &lt;ol&gt;
@@ -7,7 +11,66 @@
 &lt;li&gt;&lt;a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/5"&gt;issue #5 - Change feed location for Feedburner transition&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/6"&gt;issue #6 - Feed not enabled in html header&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;</summary><category term="feeds"></category><category term="Atom"></category><category term="FeedBurner"></category></entry><entry><title>View article source</title><link href="http://fuzz.me.uk/2012/11/26/view-source/" rel="alternate"></link><updated>2012-11-26T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-26:2012/11/26/view-source/</id><summary type="html">&lt;p&gt;You can now view the article markdown source by clicking on the &lt;strong&gt;view: article source&lt;/strong&gt; in the article info pane, just beneath the associated tags list.&lt;/p&gt;
-&lt;p&gt;If you're curious about the changes made in the backend for this to function you can always take a look at the &lt;em&gt;&lt;a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/1"&gt;Add 'View Article Source' link&lt;/a&gt;&lt;/em&gt; issue on GitHub.&lt;/p&gt;</summary><category term="Pelican"></category><category term="GitHub"></category><category term="Markdown"></category></entry><entry><title>Git revert to commit</title><link href="http://fuzz.me.uk/2012/11/19/git-revert-specific/" rel="alternate"></link><updated>2012-11-19T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-19:2012/11/19/git-revert-specific/</id><summary type="html">&lt;p&gt;Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:&lt;/p&gt;
+&lt;p&gt;If you're curious about the changes made in the backend for this to function you can always take a look at the &lt;em&gt;&lt;a href="https://github.com/fuzzmz/fuzzmz.github.com/issues/1"&gt;Add 'View Article Source' link&lt;/a&gt;&lt;/em&gt; issue on GitHub.&lt;/p&gt;</summary><category term="Pelican"></category><category term="GitHub"></category><category term="Markdown"></category></entry><entry><title>Two-factor auth with Google Authenticator</title><link href="http://fuzz.me.uk/2012/11/20/tfa-google-auth/" rel="alternate"></link><updated>2012-11-20T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-20:2012/11/20/tfa-google-auth/</id><summary type="html">&lt;h2&gt;The reason&lt;/h2&gt;
+&lt;p&gt;As you may remember I've went through &lt;a href="http://fuzz.me.uk/2012/01/19/locked-out/"&gt;a bit of an ordeal&lt;/a&gt; trying to secure my server by allowing users to log in only with certificates. This had the advantage of being more secure than a password but, as time went on, the big disadvantage of not being able to log in from PCs which lacked the certs.&lt;/p&gt;
+&lt;p&gt;Moving forward (and doing a fresh install on the VPS, which I'll address in a future post) I've went back on my decision to only allow certificate based logins. The downside to this change is that I felt the the server was still exposed despite using a strong password.&lt;/p&gt;
+&lt;p&gt;Fortunately Google offers a nice Authenticator application for smartphones as well as offering a &lt;a href="https://code.google.com/p/google-authenticator/"&gt;pluggable authentication module (PAM)&lt;/a&gt; which ties in with the Authenticator app for two-factor authentication on login. This means that besides knowing the username and password someone would need to have a time-based one-time password generated by the app in order to log in to the site.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Installing google-authenticator PAM&lt;/h2&gt;
+&lt;p&gt;I'm running Debian so this guide applies to Debian and Debian-based distributions.&lt;/p&gt;
+&lt;p&gt;First of all we're going to need to install the build-essential package which will allow us to actually install the software.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;essential&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After we've got them installed we're going to install some dependencies needed for the PAM module to work (libpam-dev) as well as to retrieve (git) and easily configure the software (libqrencode-dev).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;libpam&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libqrencode&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;libpam0g&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now let's go ahead and download the code:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;authenticator&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This grabs the files from Google's server and creates a local copy. After that's done navigate to the google-authenticator/libpam directory and run&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now that we've got everything installed it's time to actually set up the application. This is extremely easy, just run &lt;code&gt;google-authenticator&lt;/code&gt; which will generate a QR code (thanks to the libqrencode-dev package); scan this code in the Google Authenticator mobile app (or enter the information by hand) and head back to your PC to finish setting up the software by answering the questions it asks.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Setting up the OS to use Challenge Response Authentication&lt;/h2&gt;
+&lt;p&gt;Once the previous step is done we need to let the OS know that is has to use the newly installed PAM module. To do this we need to edit the &lt;code&gt;/etc/pam.d/common-auth&lt;/code&gt; (by running &lt;code&gt;sudo vim /etc/pam.d/common-auth&lt;/code&gt; for example) and adding the following line:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;auth&lt;/span&gt;    &lt;span class="n"&gt;required&lt;/span&gt;                        &lt;span class="n"&gt;pam_google_authenticator&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next up is the ssh_config file in order to allow SSH to send challenge requests:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sshd_config&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Find the line containing &lt;code&gt;ChallengeResponseAuthentication&lt;/code&gt; and set it to yes (also uncomment it if it's commented out) so that it looks like:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;ChallengeResponseAuthentication&lt;/span&gt; &lt;span class="n"&gt;yes&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now all there's left to do is restart the SSH server and to test the change:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;restart&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The next time you'll log in you should be greeted with a message asking for a verification code after entering the username and password.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;ssh user@host
+Password:
+Verification code:
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;h2&gt;Bonus points&lt;/h2&gt;
+&lt;p&gt;One advantage to this is the fact that even if you log in using a certificate (which bypasses the two-factor authentication) you are still asked for a verification code when trying to elevate to root via sudo for example.&lt;/p&gt;</summary><category term="Debian"></category><category term="Google"></category><category term="security"></category><category term="TFA"></category><category term="T-FA"></category><category term="2FA"></category></entry><entry><title>Git revert to commit</title><link href="http://fuzz.me.uk/2012/11/19/git-revert-specific/" rel="alternate"></link><updated>2012-11-19T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-11-19:2012/11/19/git-revert-specific/</id><summary type="html">&lt;p&gt;Have you ever made a git commit only to figure out that it wasn't such a good idea? How about wanting to go back in your history and reverting to a specific commit? It's actually simple once you know how to do it:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;reset&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;soft&lt;/span&gt; &lt;span class="n"&gt;HEAD&lt;/span&gt;&lt;span class="p"&gt;@{&lt;/span&gt;1&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Revert&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; 56&lt;span class="n"&gt;e05fced&lt;/span&gt;&amp;quot;
@@ -35,7 +98,53 @@
 &lt;p&gt;The movie provided some possible answers to other questions. One that we now know for certain is that the company knew exactly what was going on on LV-426 once the language in the SOS was deciphered. Second, we know that the Engineer who died on that ship made a mistake, but was clearly headed for some system where they intended to deploy the aliens (while AVP has provided some great comics and novels, I find this a more interesting premise than a yautja male initiation rite). Third, the aliens were definitely biological weapons as opposed to a naturally evolved species.&lt;/p&gt;
 &lt;p&gt;After that, the movie lets you make up your mind on a few things. Captain Janek notes that the Engineers are smart enough to build their biological weapons someplace other than their backyard. They are also smart enough to give their creations a map to the bio depots instead of their homeworld - would you want your creations showing up at your doorstep with who knows what microbes and military weapons? Now, Shaw is leaving the depot to go back to their homeworld. Flying a ship that's likely loaded down with biological weapons. There might be a very good reason that the Engineers don't have any future involvement with humankind.&lt;/p&gt;
 &lt;p&gt;Another thing is that Janek notes this planet is a "lab". Earth is another "lab". Shaw isn't going to get the answer she wants when she heads back to their homeworld, assuming she gets an answer at all. She's probably going to hear that humanity didn't fuck up, they were just another petri dish and they were going to see what happens when two dishes combine. That answers the biggest question: Why? Because they could. Just like us, their descendents.&lt;/p&gt;
-&lt;p&gt;The only real question I have that I couldn't intuit an answer for is what happened in the opening scene. It almost looks like that Engineer was exiled, or left behind, and decided to commit suicide. Not sure why that would be worth the scene, though, so I think there's another reason it was there.&lt;/p&gt;</summary><category term="Prometheus"></category><category term="movies"></category></entry><entry><title>Quick &amp; dirty with the Last.fm beta</title><link href="http://fuzz.me.uk/2012/05/13/last-fm-scrobbler-beta/" rel="alternate"></link><updated>2012-05-13T00:00:00+03:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-05-13:2012/05/13/last-fm-scrobbler-beta/</id><summary type="html">&lt;p&gt;&lt;img style="float:left; padding-right:10px" src="/images/lastfm.PNG" /&gt;&lt;/p&gt;
+&lt;p&gt;The only real question I have that I couldn't intuit an answer for is what happened in the opening scene. It almost looks like that Engineer was exiled, or left behind, and decided to commit suicide. Not sure why that would be worth the scene, though, so I think there's another reason it was there.&lt;/p&gt;</summary><category term="Prometheus"></category><category term="movies"></category></entry><entry><title>Enhanc... erm, extract!</title><link href="http://fuzz.me.uk/2012/06/08/extract-archive-recursively/" rel="alternate"></link><updated>2012-06-08T00:00:00+03:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-06-08:2012/06/08/extract-archive-recursively/</id><summary type="html">&lt;p&gt;We've all been there, haven't we? We just downloaded the latest seaso... erm, Linux distro and it came with lots of folders which in turn contain lots of archives, one folder per episode. One way to do things is to just extract each episode... erm, distro, by hand, watch it, move to the next and so on.&lt;/p&gt;
+&lt;p&gt;Another way would be to write a Windows batch script to make &lt;a href="www.7-zip.org/"&gt;7-zip&lt;/a&gt; go through all the archives and extract their contents, which means you run it once and end up with all the files out.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;FOR&lt;/span&gt; &lt;span class="n"&gt;/D&lt;/span&gt; &lt;span class="n"&gt;/r&lt;/span&gt; &lt;span class="nv"&gt;%%F&lt;/span&gt; in (&lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt;) &lt;span class="k"&gt;DO&lt;/span&gt; (
+    pushd &lt;span class="nv"&gt;%CD%&lt;/span&gt;
+    &lt;span class="k"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;%%F&lt;/span&gt;
+        &lt;span class="k"&gt;FOR&lt;/span&gt; &lt;span class="nv"&gt;%%X&lt;/span&gt; in (*.rar *.zip) &lt;span class="k"&gt;DO&lt;/span&gt; (
+            &lt;span class="s2"&gt;&amp;quot;C:\Program Files\7-zip\7z.exe&amp;quot;&lt;/span&gt; x &lt;span class="nv"&gt;%%X&lt;/span&gt;
+        )
+    popd
+)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note that if you're running a 64bit OS but don't have the 64bit version of 7-zip installed you need to change "C:\Program Files\7-zip\7z.exe" x %%X into "C:\Program Files (x86)\7-zip\7z.exe" x %%X&lt;/p&gt;
+&lt;p&gt;Launch the bat, and all rar's/zips will be extracted into the folder they are contained in.&lt;/p&gt;
+&lt;p&gt;Now let's be helpful and dissect the script, shall we?&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;FOR&lt;/span&gt; &lt;span class="n"&gt;/D&lt;/span&gt; &lt;span class="n"&gt;/r&lt;/span&gt; &lt;span class="nv"&gt;%%F&lt;/span&gt; in (&lt;span class="s2"&gt;&amp;quot;*&amp;quot;&lt;/span&gt;) &lt;span class="k"&gt;DO&lt;/span&gt; (
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is a simple for loop to go through all folders in the current directory, and put the path into a variable %%F.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;pushd &lt;span class="nv"&gt;%CD%&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Put the current directory into memory.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;%%F&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Set the folder from variable %%F as the current directory.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;FOR&lt;/span&gt; &lt;span class="nv"&gt;%%X&lt;/span&gt; in (*.rar *.zip) &lt;span class="k"&gt;DO&lt;/span&gt; (
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For all the archives (rar and zip) in the current folder, do:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s2"&gt;&amp;quot;C:\Program Files\7-zip\7z.exe&amp;quot;&lt;/span&gt; x &lt;span class="nv"&gt;%%X&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Run 7-zip on the files with the extract parameter (basically call the command line version of 7-zip telling it to extract the current archive)&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;popd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Return to the previous directory stored in memory.&lt;/p&gt;
+&lt;p&gt;That's it! Pretty simple and efficient, isn't it?&lt;/p&gt;</summary><category term="7-zip"></category><category term="recursive"></category><category term="archives"></category><category term="bat"></category></entry><entry><title>Quick &amp; dirty with the Last.fm beta</title><link href="http://fuzz.me.uk/2012/05/13/last-fm-scrobbler-beta/" rel="alternate"></link><updated>2012-05-13T00:00:00+03:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-05-13:2012/05/13/last-fm-scrobbler-beta/</id><summary type="html">&lt;p&gt;&lt;img style="float:left; padding-right:10px" src="/images/lastfm.PNG" /&gt;&lt;/p&gt;
 &lt;p&gt;Last.fm released a &lt;a href="http://www.last.fm/group/Audioscrobbler+Beta"&gt;beta version&lt;/a&gt; of their audioscrobbler, the software that sits on your PC and lets you stream their radio as well as sends the plays to their web interface.&lt;/p&gt;
 &lt;p&gt;Now, I'm a pretty big user of the old client, mostly because I disliked listening to the radio in my browser as that tends to not stay always open, while the music is everpresent, so I was pretty excited to find out about the new version. I didn't have any problems with the old software, and the only gripe with it is that it didn't notify you of the name of the track if the window was minimized.&lt;/p&gt;
 &lt;p&gt;With this in mind, I'm really happy with how the new scrobbler looks; it most certainly is based on &lt;a href="https://github.com/twitter/twui"&gt;twui&lt;/a&gt;, the UI framework designed by Twitter and used in their Mac client (also used by the GitHub Mac application) and shares the look and feel with them. The interface is really responsive, though there are still some issues like not being able to click on the icons to mute or maximize the audio level, as well as the keyboard shortcuts being displayed using the Mac notation in the settings, but hey, it's a beta! Another omission is the lack of jumplists on Windows 7, but that's not really important as it usually stays minimized to tray; speaking of which, it would be nice if they'll include global shorts for playback, as the ones available only work while the app is in focus.&lt;/p&gt;
@@ -138,7 +247,39 @@
 &lt;p&gt;The strips seem to be generated based on what browser the user is using, as well as the size of the window and the IP address.&lt;/p&gt;
 &lt;p&gt;&lt;iframe class="imgur-album" width="100%" height="550" frameborder="0" src="http://imgur.com/a/C4j2F/embed"&gt;&lt;/iframe&gt;&lt;/p&gt;
 
-&lt;p&gt;As usual, Randall Munroe proves to be awesome.&lt;/p&gt;</summary><category term="xkcd"></category><category term="april fools"></category><category term="comic"></category></entry><entry><title>Short thoughts on Windows 8 &amp; Metro</title><link href="http://fuzz.me.uk/2012/03/07/thoughts-on-metro/" rel="alternate"></link><updated>2012-03-07T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-03-07:2012/03/07/thoughts-on-metro/</id><summary type="html">&lt;p&gt;There's been a lot of talk about the recent release of the Windows 8 Consumer Preview and of the new Start Screen and Metro interface. I've been running it for some time now and will post a full article containing my impressions sometime next week, but until then I wanted to talk a bit about the most polarizing aspect of the new OS: the new start screen and the Metro design language.&lt;/p&gt;
+&lt;p&gt;As usual, Randall Munroe proves to be awesome.&lt;/p&gt;</summary><category term="xkcd"></category><category term="april fools"></category><category term="comic"></category></entry><entry><title>Bip to Energymech IRC log converter</title><link href="http://fuzz.me.uk/2012/03/27/bip-to-energymech/" rel="alternate"></link><updated>2012-03-27T00:00:00+03:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-03-27:2012/03/27/bip-to-energymech/</id><summary type="html">&lt;p&gt;The great thing about knowing how to code is being able to build things that help you out.&lt;/p&gt;
+&lt;p&gt;I've recently had to convert some IRC logs from the &lt;a href="http://bip.milkypond.org/"&gt;Bip&lt;/a&gt; format to the Energymech format used by &lt;a href="http://wiki.znc.in/"&gt;ZNC&lt;/a&gt; in order to be able to then generate some statistics from them using &lt;a href="http://pisg.sourceforge.net/"&gt;pisg&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My first approach was to hack together some macros and just plow through the logs (fortunately there weren't that many), but this had several downsides:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;by using macros I had to take out certain data which could be used to generate statistics&lt;/li&gt;
+&lt;li&gt;it's a manual job and doesn't scale well time-wise, despite being able to automate it to some extent&lt;/li&gt;
+&lt;li&gt;can't be easily shared with others&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;After finishing parsing the logs I decided that it's best to make a learning experience out of it and code a Python script that goes through all the logs and generates the correct output; I knew it wasn't a difficult task (heck, I've thrown it together in around 3 hours of coding and debugging overall) so all I had to do was get cracking.&lt;/p&gt;
+&lt;p&gt;The largest issue I had with it was regarding the way Python handles regex substitution.&lt;/p&gt;
+&lt;blockquote class="twitter-tweet tw-align-center"&gt;&lt;p&gt;Whoever makes me understand why this Python regex substitution doesn't work gets a cookie and my eternal gratitude. &lt;a href="http://t.co/fj8Nn6i4" title="http://bit.ly/GP8lM3"&gt;bit.ly/GP8lM3&lt;/a&gt;&lt;/p&gt;&amp;mdash; Serban Constantin (@fuzzmz) &lt;a href="https://twitter.com/fuzzmz/status/184431795746516992" data-datetime="2012-03-27T00:09:01+00:00"&gt;March 27, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;Thanks to the great wonder that is the Internet I could get an answer to my question in a couple of hours and continue on my marry way.&lt;/p&gt;
+&lt;blockquote class="twitter-tweet tw-align-center"&gt;&lt;p&gt;D'oh, strings in Python are immutable so my re.sub doesn't modify the string in place which means I need to, you know, save the result!&lt;/p&gt;&amp;mdash; Serban Constantin (@fuzzmz) &lt;a href="https://twitter.com/fuzzmz/status/184479937229627392" data-datetime="2012-03-27T03:20:19+00:00"&gt;March 27, 2012&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;Another nice tip I got was to pre-compile the regex before going through the loop which speeds up things considerably when dealing with lots of text. It was as simple as a:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+
+&lt;span class="n"&gt;talk_mask&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;\!.*?\:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;connect_mask&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;\!.*?\has&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;quit_info&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;\quit.*?\]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;find_nick&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;\&amp;lt;* .*?\!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;time_mask&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;([0-1]\d|2[0-3]):([0-5]\d):([0-5]\d)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;h2&gt;&lt;a href="https://github.com/fuzzmz/bip-to-energymech"&gt;Download&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I've of course made the code public. It can be found and downloaded from &lt;a href="https://github.com/fuzzmz/bip-to-energymech"&gt;GitHub&lt;/a&gt; which is also the place to report bugs or make suggestions.&lt;/p&gt;</summary><category term="irc"></category><category term="python"></category><category term="bip"></category><category term="energymech"></category><category term="log"></category><category term="log converter"></category></entry><entry><title>Short thoughts on Windows 8 &amp; Metro</title><link href="http://fuzz.me.uk/2012/03/07/thoughts-on-metro/" rel="alternate"></link><updated>2012-03-07T00:00:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-03-07:2012/03/07/thoughts-on-metro/</id><summary type="html">&lt;p&gt;There's been a lot of talk about the recent release of the Windows 8 Consumer Preview and of the new Start Screen and Metro interface. I've been running it for some time now and will post a full article containing my impressions sometime next week, but until then I wanted to talk a bit about the most polarizing aspect of the new OS: the new start screen and the Metro design language.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;img alt="Windows 8 Beta fish" src="/images/win8_header.png" /&gt;&lt;/p&gt;
 &lt;p&gt;A lot of people say that the new design is for kids, it's "Fisher Price" (going back to the same term used when Windows XP first launched), it isn't serious enough and looks like crap.&lt;/p&gt;
@@ -268,7 +409,172 @@
 &lt;p&gt;It all started because of a thread on the Good Old Games forum where MrWilli &lt;a href="http://www.gog.com/en/forum/general/what_do_i_need_to_learn_my_first_computer_language/post1"&gt;was asking about a good way to start learning programming&lt;/a&gt;, so this is goes out to him and all the nice people over at &lt;a href="http://gog.com"&gt;GOG.com&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It was all done in mixed environment, where the code editing and versioning was done on Windows using Sublime Text 2 and the actual Python install was under an Ubuntu VM running on top of Oracle Virtualbox, mostly because I didn't want to install Python under Windows.&lt;/p&gt;
 &lt;hr /&gt;
-&lt;iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/Xol9gXlsJ8U?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="python"></category><category term="video"></category><category term="coding"></category></entry><entry><title>Hello world!</title><link href="http://fuzz.me.uk/2012/01/18/hello-world/" rel="alternate"></link><updated>2012-01-18T00:02:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-18:2012/01/18/hello-world/</id><summary type="html">&lt;p&gt;This is my attempt at getting the &lt;a class="reference external" href="http://pelican.readthedocs.org/en/2.7.2/index.html"&gt;Pelican&lt;/a&gt; blog system installed on my new VPS.&lt;/p&gt;
+&lt;iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/Xol9gXlsJ8U?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="python"></category><category term="video"></category><category term="coding"></category></entry><entry><title>Up, up, backup!</title><link href="http://fuzz.me.uk/2012/01/20/backups/" rel="alternate"></link><updated>2012-01-20T03:38:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-20:2012/01/20/backups/</id><summary type="html">&lt;p&gt;As I was saying at the end of the last post, locking myself out of the server really made me want to have implemented my backup mechanism sooner, especially considering that at this point in the life of QWERTY (my VPS) there isn't that much to back up.&lt;/p&gt;
+&lt;p&gt;In short, my backup needs are simple:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Archive the important data:&lt;ul&gt;
+&lt;li&gt;IRC bouncer logs&lt;/li&gt;
+&lt;li&gt;git repositories&lt;/li&gt;
+&lt;li&gt;configuration settings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Upload the archive to a remote server;&lt;/li&gt;
+&lt;li&gt;Repeat 1. and 2. daily.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Archiving the data&lt;/h2&gt;
+&lt;p&gt;This is a really simple bash script which creates a .tar.gz archive of the folders I specify. I could further improve the script by making it do incremental backups instead of creating a new archive each day, but considering that this is a fast and dirty version of it, and that I don't have that much stuff to back up, it'll do for now.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+date
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;############### Backing up files on the system... ###############&amp;quot;&lt;/span&gt;
+
+&lt;span class="nv"&gt;backupfilename&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;server_file_backup_&lt;span class="sb"&gt;`&lt;/span&gt;date &lt;span class="s1"&gt;&amp;#39;+%Y-%m-%d&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;----- Now tar, then zip up all files to be saved -----&amp;quot;&lt;/span&gt;
+tar cvf /home/backup/&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;backupfilename&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;.tar /home/logs/* /home/stats/pisg.cfg /home/gugu/.znc/configs/znc.conf /home/repos/*
+gzip /home/backup/&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;backupfilename&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;.tar
+rm /home/backup/&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;backupfilename&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;.tar
+chmod 755 /home/backup/&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;backupfilename&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;.tar.gz
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;############### Completed backing up system... ###############&amp;quot;&lt;/span&gt;
+date
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The echo lines aren't really necessary, but I like having them there in case I run the script by hand for debugging purposes.&lt;/p&gt;
+&lt;p&gt;What it does is create an archive named server_file_backup_$current-date and adds the folders and files specified on the line starting with &lt;em&gt;tar cvf&lt;/em&gt;. Well, better said it first creates a tar archive, then it gzips it and deletes the original .tar; this is another point where the script could be improved, but hey, it works OK right now.&lt;/p&gt;
+&lt;p&gt;The archive is saved under &lt;strong&gt;/home/backup&lt;/strong&gt; and it is given all the rights except the capability for anyone to write to the file.&lt;/p&gt;
+&lt;p&gt;Then all I have to do is make the script executable with:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;archive&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;h2&gt;Uploading the archive(s)&lt;/h2&gt;
+&lt;p&gt;A backup wouldn't really be a backup if it lives on the same system you're doing it on, now would it? Now, there are a couple of ways to move the data out, but I decided to simply FTP it out to the webserver which hosts my main blog.&lt;/p&gt;
+&lt;p&gt;I initially tried the script using the built-in ftp utility but didn't manage to get it to work, so I looked around and settled for ncftp; debugging the problem would've been more interesting and a better learning experience but I wanted to get the backups up and running as soon as possible, so this will be a future exercise on my part.&lt;/p&gt;
+&lt;p&gt;The script is a simple one which logs in to the remote server using a provided username and password and uploads all archives to a pre-specified directory.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;USERNAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ftp_user_name&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;PASSWORD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ftp_password&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;SERVER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ftp_server&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# local directory to pick up *.tar.gz file&lt;/span&gt;
+&lt;span class="nv"&gt;FILE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/home/backup&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# remote directory to upload backup&lt;/span&gt;
+&lt;span class="nv"&gt;BACKUPDIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/back&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# upload file&lt;/span&gt;
+ncftp -u&lt;span class="s2"&gt;&amp;quot;$USERNAME&amp;quot;&lt;/span&gt; -p&lt;span class="s2"&gt;&amp;quot;$PASSWORD&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;$SERVER&lt;/span&gt;&lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="s"&gt;cd $BACKUPDIR&lt;/span&gt;
+&lt;span class="s"&gt;mput $FILE/*.tar.gz&lt;/span&gt;
+&lt;span class="s"&gt;quit&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And after running the same &lt;strong&gt;chmod +x&lt;/strong&gt; on up.sh, ensuring it's executable, I've got a nice setup to&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create the backup archive;&lt;/li&gt;
+&lt;li&gt;Upload it to the remote server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2&gt;The magic of cron&lt;/h2&gt;
+&lt;p&gt;Now all I have to do is make sure that the scripts run daily so that in case of something bad happening I don't have a lot of data missing. Of course, nothing really stops me running the scripts more often than that, but it's a nice trade-off between the size of the files and how much new data there is added.&lt;/p&gt;
+&lt;p&gt;Linux has something very similar to the Windows Task Scheduler called cron; what it does is allows users to schedule jobs (commands or shell scripts) to run periodically at certain times or dates.&lt;/p&gt;
+&lt;p&gt;In order for my scripts to run periodically I had to add them to the &lt;strong&gt;crontab&lt;/strong&gt; file, the configuration file for cron which tells it when the jobs need to be executed. To get to the list all I had to do was run:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;crontab&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now I just needed to add the jobs. I wanted to run the archiving script every night at 1am, and then at 1:30am the upload script. Why the 30 minute gap between the jobs? I want to have a margin of error in case I'll add to the script which makes the archive, or in case files get really large, so that I won't have the upload script try and run while the archive is being created.&lt;/p&gt;
+&lt;p&gt;Anyway, the code for the jobs is:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;*&lt;/span&gt; 1 &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;backup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;archive&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+30 1 &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;backup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;scripts&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The first line tells cron that it has to run archive.sh every day at 1am and up.sh at 1:30am.&lt;/p&gt;
+&lt;p&gt;And with this I have a backup system in place.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;To do&lt;/h2&gt;
+&lt;p&gt;I know that things can be improved, and in no way do I say that this is perfect, but it suits my needs at this point in time.&lt;/p&gt;
+&lt;p&gt;What can (and will be) improved upon are the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Making incremental backups&lt;/strong&gt; - This would mean that I'd set a specific day of the week to be the the full backup day,
+                                     when everything gets archived, and then on every other day only the files that changed
+                                     get updated.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use built-in ftp client&lt;/strong&gt;  - Go back and check to see the reason why I couldn't get ftp to work properly so that I
+                                     had to use ncftp instead.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I guess that's about it. In all honesty, if I had ssh access to another server I'd just use rsync for the backups, but seeing that I don't, this is the best method that came to mind.&lt;/p&gt;
+&lt;p&gt;In the next post I'll most likely talk about git and how I've integrated it with Pelican.&lt;/p&gt;</summary><category term="backup"></category><category term="ftp"></category><category term="archive"></category></entry><entry><title>Lockout: no pass, no key</title><link href="http://fuzz.me.uk/2012/01/19/locked-out/" rel="alternate"></link><updated>2012-01-19T23:52:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-19:2012/01/19/locked-out/</id><summary type="html">&lt;h2&gt;A foreword&lt;/h2&gt;
+&lt;p&gt;As you may not know, I'm mostly a Microsoft tech junkie venturing into the wonderful world of Linux. I've visited this land from time to time, but never had the time or motivation to try and settle in, but all this is about to change as one of my New Years resolutions was to get my hands dirty in Linux.&lt;/p&gt;
+&lt;p&gt;Every new beginning is a learning experience, and what better way to learn than from the mistakes made (and the process of trying to fix them)? With this, I bring you my first - and probably not last - embarrassing story.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;The idea&lt;/h2&gt;
+&lt;p&gt;The goal was noble: &lt;em&gt;try and make my VPS as secure as possible&lt;/em&gt;. And what better way to achieve this than to disable ssh password authentication, only allowing users to connect with public key authentication?&lt;/p&gt;
+&lt;p&gt;In the end, it was simple! All I had to do was modify &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt; and add&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;PasswordAuthentication no
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After a restart of the ssh server all was good in the world.&lt;/p&gt;
+&lt;p&gt;Heck, I was so happy that I managed to get everything running that I even made an excited tweet that would prove to be a bit too prescient for my taste.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;Finally managed to get git to behave. I feel so victorious I'd reinstall the server just to do it again. Which reminds me, need backups.&lt;/p&gt;&amp;mdash; Serban Constantin (@fuzzmz) &lt;a href="https://twitter.com/fuzzmz/status/159357579846365185" data-datetime="2012-01-17T19:33:00+00:00"&gt;January17, 2012&lt;/a&gt;&lt;/blockquote&gt;&lt;/p&gt;
+
+&lt;script src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;hr /&gt;
+&lt;h2&gt;The catalyst&lt;/h2&gt;
+&lt;p&gt;Every time I logged in, the working directory was &lt;strong&gt;/root&lt;/strong&gt; (and yes, I know that I shouldn't use root for my day to day business, but hey, that's why I disabled password authentication) and yet all of my work was done in &lt;strong&gt;/home&lt;/strong&gt;. This in turn lead to a very frustrated Fuzz who sought to fix his problem.&lt;/p&gt;
+&lt;p&gt;I mean, it couldn't be that hard to change the login directory, would it? Heck, Linux even gives you a simple way to do it through&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;usermod -d newdir loginname
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So all I had to do was to run &lt;em&gt;usermod -d /home root&lt;/em&gt; and I'd be set. Little did I know that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;there is an additional parameter, &lt;em&gt;-m&lt;/em&gt; which moves the contents of the old dir to the new one (*cough* *cough*);&lt;/li&gt;
+&lt;li&gt;you can't run the command for the user you're currently logged in with.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This meant that I had to search for an alternative: it was changing the directory directly in the &lt;strong&gt;/etc/passwd&lt;/strong&gt; file, and so I did.&lt;/p&gt;
+&lt;p&gt;And things were good!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;There are no keys to this castle&lt;/h2&gt;
+&lt;p&gt;A short time passes after changing the passwd file and I decide to do a logout and log back in.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Permission&lt;/span&gt; &lt;span class="n"&gt;denied&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;publickey&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;OK, this isn't good, this isn't good at all!&lt;/p&gt;
+&lt;p&gt;Remember that -m I told you about? Yeah, the one that moves the contents of the old login directory to the new one; well, one of the things it moves is the &lt;strong&gt;.ssh&lt;/strong&gt; folder which contains the authorized_keys file.&lt;/p&gt;
+&lt;p&gt;What's so special about that file? Well, it holds the list of rsa keys which are allowed to access the server. Think of them as the keys that open your house door in the absence of people inside (the password, which I disabled) to open the door for you.&lt;/p&gt;
+&lt;p&gt;In short:&lt;/p&gt;
+&lt;p align="center"&gt;&lt;blockquote class="twitter-tweet"&gt;&lt;p&gt;Just as I got everything running the way I wanted I managed to lock myself out of the server. Fucking piece of shit!&lt;/p&gt;&amp;mdash; Serban Constantin (@fuzzmz) &lt;a href="https://twitter.com/fuzzmz/status/159371687379484675" data-datetime="2012-01-17T20:29:00+00:00"&gt;January17, 2012&lt;/a&gt;&lt;/blockquote&gt;&lt;/p&gt;
+
+&lt;script src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;Fortunately, while bitching on Twitter about the whole situation &lt;a href="http://twitter.com/Kephu"&gt;Keph&lt;/a&gt; reminds me that I still have access to the server... somewhat.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;IRC bouncer to the rescue!&lt;/h2&gt;
+&lt;p&gt;One of the purposes of that VPS is to run &lt;a href="http://wiki.znc.in"&gt;ZNC&lt;/a&gt;, an IRC bouncer which has some nice capabilities, one of them being a module called &lt;em&gt;shell&lt;/em&gt; which allow you to type commands into a query as if it were a terminal.&lt;/p&gt;
+&lt;p&gt;"Yay, I am saved!" thought I, without realizing that I had ZNC run under a non-admin account, exactly because of the shell module. The reasoning is that in case someone hacks my IRC password they won't be able to do any damage as, either by loging in the server directly through ssh or via the shell module.&lt;/p&gt;
+&lt;p&gt;On the upside, even though I couldn't do much I could at least write an authorized_keys file for that user and get ssh access to the server; this in turn meant that I could back up a portion of my data in case I had to reinstall the server.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Admin panel? What admin panel?&lt;/h2&gt;
+&lt;p&gt;Of course, people both in IRC and on Twitter told me to see if I can get access to the server via the admin panel provided by the VPS host. Fortunately for me, they did indeed provide such access via a serial console.&lt;/p&gt;
+&lt;p&gt;&lt;img style="float:left; padding-right:10px" src="/images/magic-button.PNG" /&gt;&lt;/p&gt;
+&lt;p&gt;I had seen this magic button and tried it even before embarking on the amazing IRC-hackathon journey, I, in my eternal wisdom, decided to replace the default username in the dialogue that popped up when I pressed it with root, which in turn led me to the same "Permission denied(publickey)" error message.&lt;/p&gt;
+&lt;p&gt;This time though, this time it would be different! This time I would leave the default username and gaze upon the wonders of&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;root@qwerty:~#
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Yes, I was in and victorious!&lt;/p&gt;
+&lt;p&gt;I quickly created a .ssh/authorized_keys file under my new login directory and started working on my backup strategy.&lt;/p&gt;
+&lt;p&gt;But about that, in the next blog update.&lt;/p&gt;</summary><category term="Linux"></category><category term="d'oh"></category></entry><entry><title>Hello world!</title><link href="http://fuzz.me.uk/2012/01/18/hello-world/" rel="alternate"></link><updated>2012-01-18T00:02:00+02:00</updated><author><name>Serban Constantin</name></author><id>tag:fuzz.me.uk,2012-01-18:2012/01/18/hello-world/</id><summary type="html">&lt;p&gt;This is my attempt at getting the &lt;a class="reference external" href="http://pelican.readthedocs.org/en/2.7.2/index.html"&gt;Pelican&lt;/a&gt; blog system installed on my new VPS.&lt;/p&gt;
 &lt;p&gt;This is also a first &lt;strong&gt;Hello World&lt;/strong&gt; blog post, as is customary. So, hello! I'm not sure yet what this blog is going to be about, most likely about my adventures in learning more about the wonderful word of Linux server administration and geekiness.&lt;/p&gt;
 &lt;p&gt;It's also a bit weird to write this as I haven't learned much about the reStructredText format, which is used behind the scenes to write the posts.&lt;/p&gt;
 &lt;p&gt;In any case, hope you'll have fun reading this as I have writing it.&lt;/p&gt;

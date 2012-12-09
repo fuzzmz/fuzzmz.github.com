@@ -50,8 +50,52 @@
         
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href=".././2012/06/08/extract-archive-recursively/">Enhanc... erm, extract!</a></h1> 
+                    <h1 class="entry-title"><a href=".././2012/12/09/filename-replace/">Fast filename replace</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2012-12-09T00:00:00">
+                Sun 09 December 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/serban-constantin.html">Serban Constantin</a>
+        </address>
+        
+<p>In <a href=".././category/code.html">code</a>. </p>
+<p>tags: <a href=".././tag/powershell.html">PowerShell</a><a href=".././tag/scripting.html">scripting</a></p>
+
+
+<p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-12-09-filename-replace.md">article source</a></p>
+</footer><!-- /.post-info --><p>This is a short article for a short PowerShell command.</p>
+<p>Have you ever had a folder filled with files wheree you wanted to replace all spaces in the file names with dashes for example? If yes, then this script will work wonders for you.</p>
+<p>:::powershell
+   get-childitem *.mp3 | foreach { rename-item $<em> $</em>.Name.Replace(" ", "_") }</p>
+<p>That command replaces all spaces with underscores in all mp3 files in the folder it's run. The syntax is pretty explicit, <code>get-childitem</code> tells powershell to get all the contents of the folder with the extension specified (in our case it's <code>*.mp3</code>) and makes a loop over all elements (<code>foreach</code>) where it replaces all spaces with underscores for each item found with that extension.</p><p>There are <a href=".././2012/12/09/filename-replace/#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././2012/06/08/extract-archive-recursively/" rel="bookmark"
+                           title="Permalink to Enhanc... erm, extract!">Enhanc... erm, extract!</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-06-08T00:00:00">
                 Fri 08 June 2012
         </abbr>
@@ -66,63 +110,12 @@
 
 
 <p>view: <a href="https://github.com/fuzzmz/fuzzmz.github.com/blob/sources/2012-06-08-extract-archive-recursively.md">article source</a></p>
-</footer><!-- /.post-info --><p>We've all been there, haven't we? We just downloaded the latest seaso... erm, Linux distro and it came with lots of folders which in turn contain lots of archives, one folder per episode. One way to do things is to just extract each episode... erm, distro, by hand, watch it, move to the next and so on.</p>
-<p>Another way would be to write a Windows batch script to make <a href="../static/www.7-zip.org">7-zip</a> go through all the archives and extract their contents, which means you run it once and end up with all the files out.</p>
-<div class="codehilite"><pre><span class="k">FOR</span> <span class="n">/D</span> <span class="n">/r</span> <span class="nv">%%F</span> in (<span class="s2">&quot;*&quot;</span>) <span class="k">DO</span> (
-    pushd <span class="nv">%CD%</span>
-    <span class="k">cd</span> <span class="nv">%%F</span>
-        <span class="k">FOR</span> <span class="nv">%%X</span> in (*.rar *.zip) <span class="k">DO</span> (
-            <span class="s2">&quot;C:\Program Files\7-zip\7z.exe&quot;</span> x <span class="nv">%%X</span>
-        )
-    popd
-)
-</pre></div>
-
-
-<p>Note that if you're running a 64bit OS but don't have the 64bit version of 7-zip installed you need to change "C:\Program Files\7-zip\7z.exe" x %%X into "C:\Program Files (x86)\7-zip\7z.exe" x %%X</p>
-<p>Launch the bat, and all rar's/zips will be extracted into the folder they are contained in.</p>
-<p>Now let's be helpful and dissect the script, shall we?</p>
-<div class="codehilite"><pre><span class="k">FOR</span> <span class="n">/D</span> <span class="n">/r</span> <span class="nv">%%F</span> in (<span class="s2">&quot;*&quot;</span>) <span class="k">DO</span> (
-</pre></div>
-
-
-<p>This is a simple for loop to go through all folders in the current directory, and put the path into a variable %%F.</p>
-<div class="codehilite"><pre>pushd <span class="nv">%CD%</span>
-</pre></div>
-
-
-<p>Put the current directory into memory.</p>
-<div class="codehilite"><pre><span class="k">cd</span> <span class="nv">%%F</span>
-</pre></div>
-
-
-<p>Set the folder from variable %%F as the current directory.</p>
-<div class="codehilite"><pre><span class="k">FOR</span> <span class="nv">%%X</span> in (*.rar *.zip) <span class="k">DO</span> (
-</pre></div>
-
-
-<p>For all the archives (rar and zip) in the current folder, do:</p>
-<div class="codehilite"><pre><span class="s2">&quot;C:\Program Files\7-zip\7z.exe&quot;</span> x <span class="nv">%%X</span>
-</pre></div>
-
-
-<p>Run 7-zip on the files with the extract parameter (basically call the command line version of 7-zip telling it to extract the current archive)</p>
-<div class="codehilite"><pre>popd
-</pre></div>
-
-
-<p>Return to the previous directory stored in memory.</p>
-<p>That's it! Pretty simple and efficient, isn't it?</p><p>There are <a href=".././2012/06/08/extract-archive-recursively/#disqus_thread">comments</a>.</p>
-                </article>
-                
-            </aside><!-- /#featured -->
-            
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-            
-        
+</footer><!-- /.post-info -->
+                <p>We've all been there, haven't we? We just downloaded the latest seaso... erm, Linux distro and it came with lots of folders which in turn contain lots of archives, one folder per episode. One way to do things is to just extract each episode... erm, distro, by hand ...</p>
+                <a class="readmore" href=".././2012/06/08/extract-archive-recursively/">read more</a>
+                <p>There are <a href=".././2012/06/08/extract-archive-recursively/#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
         
         
             
