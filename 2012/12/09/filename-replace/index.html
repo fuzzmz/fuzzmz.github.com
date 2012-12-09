@@ -76,8 +76,10 @@
 </footer><!-- /.post-info -->
       <p>This is a short article for a short PowerShell command.</p>
 <p>Have you ever had a folder filled with files wheree you wanted to replace all spaces in the file names with dashes for example? If yes, then this script will work wonders for you.</p>
-<p>:::powershell
-   get-childitem *.mp3 | foreach { rename-item $<em> $</em>.Name.Replace(" ", "_") }</p>
+<div class="codehilite"><pre><span class="nb">get-childitem</span> <span class="p">*.</span><span class="n">mp3</span> <span class="p">|</span> <span class="k">foreach</span> <span class="p">{</span> <span class="nb">rename-item</span> <span class="nv">$_</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+
+
 <p>That command replaces all spaces with underscores in all mp3 files in the folder it's run. The syntax is pretty explicit, <code>get-childitem</code> tells powershell to get all the contents of the folder with the extension specified (in our case it's <code>*.mp3</code>) and makes a loop over all elements (<code>foreach</code>) where it replaces all spaces with underscores for each item found with that extension.</p>
     </div><!-- /.entry-content -->
     
